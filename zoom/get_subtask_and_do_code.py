@@ -161,15 +161,83 @@ def update_files_with_cleaned_code(directory):
             except Exception as e:
                 print(f"Failed to clean {filename}: {e}")
 
+DEFAULT_THOUGHT = "GOT"
+
+def should_be_combined(t_i, d_i, t_j, d_j):
+    prompt = f"You are given the following edits to make to a codebase: {t_i} and {t_j}. The description of {t_i} is {d_i}, and the description of {t_j} is {d_j}. Are these two tasks interconnected enough that it makes sense to combine them into one task in the planning segment? Answer 'yes' or 'no'."
+    return make_gpt4_call(prompt)
+    
+def combine(t_i, d_i, t_j, d_j):
+    prompt = f"You are given the tasks: {t_i} and {t_j}. The description of {t_i} is {d_i}, and the description of {t_j} is {d_j}. Combine {t_i} and {t_j} into one task."
+    task = make_gpt4_call(prompt)
+    prompt = f"You are given the tasks: {t_i} and {t_j}. The description of {t_i} is {d_i}, and the description of {t_j} is {d_j}. Combine {d_i} and {d_j} into one description."
+    description = make_gpt4_call(prompt)
+    return task, description
+
+def find_file(codebase, task, description):
+    prompt = f"You want to do task: {task} with description {description}. The current codebase is {codebase}. Please tell me what file(s) you want to add the code to in the following form: ['filename1', 'filename2', 'filename3']"
+    return make_gpt4_call(prompt)
+
+def new_file(codebase, task, description):
+    res = ""
+    while "yes" not in res.lower() and "no" not in res.lower(): 
+        prompt = f"You want to do task: {task} with description {description}. The current codebase is {codebase}. Do you need to create a new file? ANSWER yes or no, ANSWER IN ONE WORD!"
+        res = make_gpt4_call(prompt)
+    if "yes" in res.lower():
+        return True
+    else:
+        return False
+    
+    
+def write_code_given_file(newfile, file, codebase, task, description):
+    if newfile:
+        create_file = "You will need to create new file(s)."
+    else:
+        create_file = "Do not create any new files."
+    prompt = f"Please do task: {task} with description {description}. The current codebase is {codebase}. Please make changes in the following files: {file}. {create_file} Specifically give me a json for each file with fields: 'file_name', 'new' (bool) and 'code' . Please give me absolutely nothing else expect for the valid JSON. Make sure to put commas if needed (important!). Please don't have Invalid \escape in your code (very important!). Make sure your file_name is always a FILE in the current folder and never like a folder/file_name"
+    return make_gpt4_call(prompt)
+    
+
 def main(file_path):
     tasks, descriptions = process_transcript_file(file_path)
     if len(tasks) != len(descriptions):
         raise ValueError("susssss.")
-    for idx in range(len(tasks)):
-        codebase = get_files_and_code('alg_code_4')
-        task, description = tasks[idx], descriptions[idx]
-        json_code = write_code(codebase, task, description)
-        write_code_to_file(clean_json_string(json_code))
+    if (DEFAULT_THOUGHT == "COT"):
+        for idx in range(len(tasks)):
+            codebase = get_files_and_code('alg_code_4')
+            task, description = tasks[idx], descriptions[idx]
+            json_code = write_code(codebase, task, description)
+            write_code_to_file(clean_json_string(json_code))
+    elif (DEFAULT_THOUGHT == "GOT"):
+        for idx in range(len(tasks)):
+            # Iterate in reverse
+            i = len(tasks) - idx - 1
+            task, description = tasks[idx], descriptions[idx]
+
+            # For each task, check if it should be combined with any other task
+            for j in range(len(tasks)):
+                res = should_be_combined(tasks[i], descriptions[i], tasks[j], descriptions[j]).lower()
+                while (not "yes" in res and not "no" in res):
+                    res = should_be_combined(tasks[i], descriptions[i], tasks[j], descriptions[j]).lower()
+                
+                # If yes, combine tasks
+                if "yes" in res:
+                    tasks[j], descriptions[j] = combine(tasks[i], descriptions[i], tasks[j], descriptions[j])
+                    tasks.pop(i)
+                    descriptions.pop(i)
+                    break
+        
+        # For each remaining task:
+        for idx in range(len(tasks)):
+            codebase = get_files_and_code('alg_code_4')
+            task, description = tasks[idx], descriptions[idx]
+            # Find the files we need to edit and check if we need a new file
+            files = find_file(codebase, task, description)
+            newfile = new_file(codebase, task, description)
+            json_code = write_code_given_file(newfile, files, codebase, task, description)
+            write_code_to_file(clean_json_string(json_code))
+    else:
+        pass
     update_files_with_cleaned_code('alg_code_4')
 
 
