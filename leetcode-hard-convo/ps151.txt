@@ -1,0 +1,37 @@
+**Jordan:** Hey, guys! Thanks for jumping on this call. So, we've got a real brain bender to work through today. It's about creating an algorithm to contain a virtual virus spread in a grid. Quite timely, isn't it?
+
+**Alex:** Definitely, Jordan. Could you walk us through the specifics of the problem?
+
+**Jordan:** Sure. We're dealing with a 2-D array where cells marked `1` are infected, and cells marked `0` are uninfected. We can place walls between any two 4-directionally adjacent cells to stop the virus from spreading to neighboring cells.
+
+**Morgan:** Got it. So, our main goal is to decide where to place these walls to quarantine the most threatening infected area each day, right?
+
+**Jordan:** Exactly, Morgan. The trick here is we can only contain one region per day - the one that poses the biggest threat of spreading the virus further.
+
+**Alex:** This sounds like we need to calculate the impact of each infected region on a daily basis to prioritize our actions. Do we have a way to assess the threat level?
+
+**Jordan:** That's a good point, Alex. We can approach this by first identifying each infected region. Then, we figure out how many neighboring uninfected cells each region has. The region with the highest number of adjacent uninfected cells is our target for wall placement.
+
+**Morgan:** That makes sense. Are we also calculating the least number of walls needed to contain a region?
+
+**Jordan:** Yes, we need to be efficient with our resources. The idea is to calculate the perimeter of the targeted infected area for wall placement.
+
+**Alex:** What happens in scenarios where the entire world is eventually infected? Do we have a fallback?
+
+**Jordan:** Great question, Alex. If we reach a point where the virus can’t be contained further and spreads across the entire grid, we return the total number of walls we've used in our containment efforts.
+
+**Morgan:** Understanding the problem is one thing, but this seems like it could get pretty complex algorithmically. Are we thinking of using a specific approach or algorithm to iterate through the grid and make these calculations?
+
+**Jordan:** A solid approach would be to use Depth-First Search (DFS) for identifying each infected region and its immediate threat level. We could iteratively apply DFS to calculate the size and perimeter of each infected area, then choose the best candidate for wall installation each day.
+
+**Alex:** That sounds like a plan. DFS can efficiently map out each region and its respective borders. For calculating the minimum walls needed, we're essentially looking at the perimeter of these regions, correct?
+
+**Jordan:** Precisely, Alex. Calculating the perimeter will give us the number of walls required to contain an infected area. It’s also important to update the grid after each round of virus spread and wall installation to reflect the new state for the next day’s calculation.
+
+**Morgan:** Keeping track of the grid state sounds critical. We'll need to carefully code the spread mechanism and ensure our wall placements are correctly implemented. 
+
+**Jordan:** Absolutely, Morgan. Correct state management is crucial. Testing our algorithm with different grid configurations will be key to ensuring our solution works across all scenarios outlined in the problem statement.
+
+**Alex:** Thanks, Jordan, for breaking this down. It looks like we have our work cut out for us. Let’s start with identifying infected regions using DFS and go from there.
+
+**Jordan:** Sounds like a plan! Let's regroup after some initial coding to share progress and any challenges. Thanks, team!

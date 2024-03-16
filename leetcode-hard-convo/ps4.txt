@@ -1,0 +1,37 @@
+**Alex**: Hey Jamie, I've been scratching my head around this problem I came across today. It's about implementing wildcard pattern matching. Have you had any experience with that?
+
+**Jamie**: Oh, the classic wildcard matching problem? Yeah, I've worked through something similar before. You're dealing with '?' and '*' as the wildcards, right?
+
+**Alex**: Exactly! '?' matches any single character, and '*' matches any sequence of characters, including the empty sequence. I'm kind of stuck on how to approach it though.
+
+**Charlie**: I overheard you two discussing wildcard matching. Are you trying to match the entire input string with the pattern?
+
+**Alex**: That's right, Charlie. The match has to cover the entire input string, not just parts of it.
+
+**Jamie**: Alright, let's break it down. Maybe we start by exploring how to handle the '?' wildcard. It seems more straightforward since it matches any single character.
+
+**Charlie**: True. For each '?' in the pattern, you can directly compare it against the current character in the string. If the characters match or if it's a '?', you move on to the next pair of characters, right?
+
+**Alex**: Makes sense. But what about the '*' wildcard? It can match any sequence of characters, which seems a bit tricky.
+
+**Jamie**: The '*' wildcard is where things get interesting. It represents zero or more of any characters, so you'd need a way to explore multiple possibilities. Perhaps some kind of backtracking or dynamic programming could be efficient here.
+
+**Charlie**: I was thinking along the lines of dynamic programming too. Maybe creating a 2D table to keep track of matches up to certain points in the string and pattern could work. You'd fill in the table based on the previous states and the current characters.
+
+**Alex**: I see. So, if I understand correctly, each cell in the table represents whether the substring up to that point can be matched with the pattern up to a point?
+
+**Jamie**: Exactly! And don't forget to handle the edge cases, like empty strings and patterns consisting solely of '*'. Those can trip you up if you're not careful.
+
+**Charlie**: Also, it might be helpful to think about how you can optimize the space complexity once you've figured out the basic DP solution. Wildcard matching problems can often be optimized further.
+
+**Alex**: This is incredibly helpful, folks. I think I have a solid starting point now. I'll try to come up with a draft and maybe we can review it together later?
+
+**Jamie**: Sounds like a plan. Just dive in, and we'll fine-tune it together. Wildcard matching is tricky, but once you get the hang of it, it's quite a useful algorithm to understand.
+
+**Charlie**: Agreed. And remember, Alex, tackling each component separately before trying to put it all together can make it easier to handle. You've got this!
+
+**Alex**: Thanks both of you for your insights and encouragement! I'll get started on that. Looking forward to our next discussion.
+
+**Jamie**: Anytime, Alex. We'll crack it together. Catch you later!
+
+**Charlie**: Yeah, keep us posted. Happy coding!

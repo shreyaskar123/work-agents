@@ -1,0 +1,57 @@
+**Location:** Bright, modern office's glass-enclosed meeting room.
+
+**Participants:** Jamie (Team Lead), Alex (Software Developer), Taylor (Database Administrator)
+
+---
+
+**Jamie:** Good morning, everyone. Let's dive right into our main agenda for today - we've been tasked with optimizing our current database schema to improve performance. Alex, Taylor, you both have reviewed the current structure, right?
+
+**Alex:** Yes, Jamie. I've primarily been looking into how our application interacts with the database and identified a few bottlenecks.
+
+**Taylor:** And I've focused on the database schema itself, how it's structured, and where we can make adjustments or optimizations.
+
+**Jamie:** Perfect. Let's start with identifying the performance issues. Alex, can you share your findings?
+
+**Alex:** Sure. One of the main issues is with how certain queries are running longer than anticipated. It seems like the lack of proper indexing is a part of the problem. For instance, when users fetch their transaction history, the response time is slow.
+
+**Taylor:** That's correct. And from the schema perspective, the 'Transactions' table doesn't have indexes on some of the most queried columns. Adding indexes could significantly reduce query time.
+
+**Jamie:** Could you both explain a bit more about indexes and why they're important in this context?
+
+**Taylor:** Of course. Think of an index like a textbook's index. It helps you find information quickly without reading the entire book. In databases, an index allows the database to find and retrieve specific rows much faster than without an index.
+
+**Alex:** And to add to that, without proper indexing, the database must perform a full table scan to find the relevant rows, which is much slower, especially as data grows.
+
+**Jamie:** That makes sense. What would be a good approach to identify which columns to index? 
+
+**Taylor:** We should start by analyzing the queries that run the most and take the longest time. Tools like query performance insights in our database management system can show us this data.
+
+**Alex:** Yes, and from the application side, we can review the most common operations users perform that interact with the database. This information could guide us on which tables and columns are accessed frequently.
+
+**Jamie:** Great insight, thanks. Moving on, were there any other concerns from the schema side, Taylor?
+
+**Taylor:** Yes, another aspect we might want to look into is normalization. Some tables are not fully normalized, which could result in data redundancy and inconsistencies.
+
+**Jamie:** Could you clarify what normalization means for Alex and why it might be significant?
+
+**Taylor:** Sure, normalization is the process of organizing a database to reduce redundancy and improve data integrity. Essentially, it ensures that each piece of data is stored only once, which makes the database more efficient and easier to maintain.
+
+**Alex:** So, if we had a table where user's names and their transaction details were all in one place, normalization would involve splitting that into two separate tables - one for users and one for transactions, and then linking them with a foreign key?
+
+**Taylor:** Exactly, Alex. That's a simple but effective illustration of normalization.
+
+**Jamie:** This is good progress. Now, if we were to implement these changes, how should we go about it?
+
+**Alex:** From the development side, we'd need to adjust our application's database interactions based on the new schema. That involves updating our data models and possibly some of the business logic.
+
+**Taylor:** And I would need to script the changes to the schema, test them on a development database first, and plan for a migration path that minimizes downtime.
+
+**Jamie:** Sounds like we have a solid plan. Let's document these points, draft a detailed action plan, and schedule a follow-up meeting next week to begin implementation. Any final thoughts?
+
+**Taylor:** Just that it's important to back up everything before we start making changes.
+
+**Alex:** Agreed. And let's ensure we communicate these changes to the wider team, so they're prepared for any temporary disruptions.
+
+**Jamie:** Will do. Thanks, Alex, Taylor for the thoughtful discussion. Let's make this happen.
+
+**End of Meeting**

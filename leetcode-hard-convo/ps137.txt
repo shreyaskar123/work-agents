@@ -1,0 +1,33 @@
+**Alex:** Hey everyone, thanks for joining today's brainstorming session. We've got a challenging problem to tackle involving finding three non-overlapping subarrays with maximum sum in an array of positive integers. Each subarray needs to be of the same size, `k`. Have you guys had a chance to look into this?
+
+**Jordan:** I skimmed through it earlier. So, we're essentially trying to maximize the sum of these three `k`-sized subarrays while ensuring they don't overlap, right?
+
+**Riley:** Exactly, and we also need to return the starting indices of these subarrays. If there are multiple solutions, we should return the lexicographically smallest one.
+
+**Casey:** Sounds like a fun challenge. Do we have any constraints we need to be aware of?
+
+**Alex:** Yes, the length of the input array will be between 1 and 20000, and each integer will be between 1 and 65535. Also, `k` will be at most one-third of the length of the input list, since we're fitting three subarrays into it.
+
+**Jordan:** Have you thought about how we might approach this problem? My first instinct is to try some form of dynamic programming or maybe sliding window since we're dealing with subarrays.
+
+**Riley:** A sliding window could work well for finding the maximum sum of a `k`-sized subarray, but we need three of them. How about we break this problem down? First, focus on finding the max sum of a single subarray of size `k`.
+
+**Casey:** Right, once we've figured out how to reliably get the max sum for one subarray, we could try extending that logic to cover three non-overlapping subarrays. Though, we'll need to keep track of the sums in a way that lets us pick the best combination for the final answer.
+
+**Alex:** Good point. So we're not just looking for the max sum but also where these sums are located in the original array. This sounds like we'll need to maintain some data structure to keep track of these sums and their indices.
+
+**Jordan:** Also, considering we want the lexicographically smallest answer, we should be mindful of how we store and compare our results. It's not just about the sums; the positions are crucial too.
+
+**Riley:** For each `k`-sized subarray, we could calculate its sum and update some sort of cumulative best-sum tracker that respects both the total sums and their starting positions. This might require a dynamic approach, where we iterate over the array with some clever bookkeeping.
+
+**Casey:** Regarding implementation, I guess starting simple with three loops might give us the brute force solution, but we’d need to improve from there to handle large `nums` arrays efficiently. 
+
+**Alex:** Absolutely, a brute force method could help us understand the problem better but won't be efficient for large input sizes. Once we have a basic understanding, optimizing it will be key. Maybe precomputing sums or utilizing some form of memoization could help us reduce the time complexity.
+
+**Jordan:** I think we're on the right track. Let's start by sketching out some code to tackle a single subarray max sum and iteratively enhance our approach. We'll regroup in a bit to discuss optimization and how to elegantly handle the lexicographical aspect.
+
+**Riley:** Sounds good. I'll also look into some existing algorithms for inspiration. There might be a well-known pattern we can adapt for this problem.
+
+**Casey:** Great, let's get started then. Remember, the key is not just solving it but also ensuring our solution is efficient and elegant.
+
+**Alex:** Thanks, everyone. Let's reconvene in an hour with updates and ideas on how to proceed. Happy coding!

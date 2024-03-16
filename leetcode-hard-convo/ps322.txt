@@ -1,0 +1,33 @@
+**Alex**: Hey Jamie, have you seen that new problem we got for the coding contest? It's about finding the maximum number of non-overlapping substrings of a given string. 
+
+**Jamie**: Oh, I glanced at it earlier. It requires each substring to contain all occurrences of any character present in it, right?
+
+**Alex**: Exactly. And there's a twist - if there are multiple solutions with the same number of substrings, we need to choose the one with the minimum total length.
+
+**Jamie**: Sounds challenging. How do you even start approaching a problem like this?
+
+**Alex**: I guess the first step is to figure out the bounds of each character in the string. Like, if you have the string "adefaddaccc", you should know the first and last positions of 'a', 'd', and so on.
+
+**Jamie**: Right, that makes sense. So we'd need some sort of map or array to keep track of the first and last indices for each character.
+
+**Alex**: After that, it seems the trick is to find the starting point of our substrings. I think iterating from the beginning of the string and using those bounds could help us determine valid starting points.
+
+**Jamie**: Hmm, but we also need to make sure these substrings do not overlap. How do you propose we handle that?
+
+**Alex**: I was thinking, as we move through the string, we adjust the end of the current substring we're trying to form. Like, if the current character extends beyond the current end, we push the end further out.
+
+**Jamie**: I see, so it's kind of a dynamic process. We're adjusting the end as we find characters whose last occurrence demands a wider substring.
+
+**Alex**: Exactly. And once we can't extend the substring any further because the next character would start a new, non-overlapping substring, we finalize the current substring.
+
+**Jamie**: Got it. But what about choosing the substrings with the minimum total length in case of multiple solutions?
+
+**Alex**: That's the beauty of it. By always optimizing for the shortest possible substrings as we go, we naturally end up with the solution that has the minimum total length. We don't need to find all possible sets of substrings, just the optimal one as we iterate.
+
+**Jamie**: Makes sense. So the final step would be just to return these substrings we've found. Though I assume there's a bit of nuance in implementing this correctly to handle all edge cases.
+
+**Alex**: Definitely. We'll need to carefully code it to ensure we're correctly identifying when to start a new substring and ensuring we're not missing any characters that could extend the current substring's bounds.
+
+**Jamie**: Sounds like a plan. Let's start with mapping the characters' first and last positions and go from there. Ready to give it a shot?
+
+**Alex**: Absolutely, let's get to it. This is going to be an interesting one to implement.

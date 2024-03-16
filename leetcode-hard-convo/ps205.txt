@@ -1,0 +1,37 @@
+**Jordan**: Alright team, let's dive into this challenge we've got on our hands. We need to figure out how to install this billboard with the largest height possible. We’re given a bunch of rods to work with.
+
+**Alex**: Yeah, I saw that. Each rod has a different length, and we can weld them to create two supports of equal height, right?
+
+**Jordan**: Precisely. We need those two supports to be equal in height to ensure the billboard is balanced. And, we've got to make them as tall as possible.
+
+**Morgan**: So, we're essentially looking to divide the rods into two sets where the sum of each set is equal, and as large as possible. And if it’s not possible, we return 0.
+
+**Alex**: Correct. Let's consider how we'd approach this. Maybe we could start by thinking of it algorithmically? It feels like a classic optimization problem.
+
+**Jordan**: Definitely. Have you guys heard of dynamic programming? It could be a viable path here, focusing on solving the problem by breaking it down into simpler subproblems.
+
+**Morgan**: Right. Maybe we could use a structure to keep track of the sums we can achieve with the different combinations of rods. So, each time we consider adding a rod, we see how it affects our current possible sums.
+
+**Alex**: I see where this is going. We iterate through each rod, updating our possible sums. We would need some kind of way to loop through the rods and keep updating a set or list of achievable sums.
+
+**Jordan**: Exactly. Remember, the goal is to find two subsets with the same sum, meaning we need to reach a situation where the total sum of the rods we’ve used is twice the height of one of the supports.
+
+**Morgan**: So we essentially need to find the largest sum that we can achieve with these constraints. It's about exploring all combinations while being efficient with our choices.
+
+**Alex**: Right. And considering the constraints given, like the number of rods and each of their lengths, we should be mindful of not exceeding computational limits. A brute-force approach might be too slow, so optimizing our process is key.
+
+**Jordan**: Definitely. Let's also not forget the edge cases, like when it's not possible to split the rods into two equal sums. We have to account for returning 0 in those scenarios.
+
+**Morgan**: Agreed. Testing will be vital here. Trying a variety of rod combinations, especially edge cases, will help ensure our approach is solid.
+
+**Alex**: Do we also consider the possibility of not using all the rods? Some scenarios might give us the optimal height by excluding one or more rods.
+
+**Jordan**: Good point. Our solution should indeed factor in the possibility that leaving out certain rods could result in a higher overall height. We're looking for the maximum, not necessarily using all resources.
+
+**Morgan**: Alright, seems like we have a decent preliminary plan. Let's start working on a prototype based on this discussion and iterate from there.
+
+**Jordan**: Great. Let's reconvene in a few hours with our progress. Alex, you could focus on drafting the initial algorithm. Morgan, could you look into test cases and edge conditions?
+
+**Alex**: Sounds good to me. Let's get to it.
+
+**Morgan**: Will do. Catch you guys later.

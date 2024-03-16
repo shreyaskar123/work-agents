@@ -1,0 +1,35 @@
+Alice: So, we've got this array of distinct non-empty strings. Our goal is to generate minimal possible abbreviations for each word, but there's a twist with handling conflicts.
+
+Bob: Right, the instructions mention that we start with the first character, then the count of characters to be abbreviated, followed by the last character. That's straightforward for words without conflicts.
+
+Chris: But when there's a conflict, we need to keep extending the abbreviation by using a longer prefix, correct? Until all the abbreviations are unique.
+
+Alice: Exactly. And there's also a condition that if this abbreviation doesn't actually shorten the word, we should just keep the word as is.
+
+David: Seems like a plan. So, how do we go about detecting these conflicts? We start with the simplest abbreviation possible and keep a track?
+
+Bob: Yes, I suppose we could use a hashmap to keep track of the abbreviations and their corresponding words. If we encounter an abbreviation that's already in the map, it means there's a conflict.
+
+Chris: Then we'd need to update not just the abbreviation causing the conflict, but also the one that's already in the map. Both need to be unique.
+
+Alice: Correct. And we'd keep updating the abbreviations, making them longer by one character at a time until all conflicts are resolved. 
+
+David: And, of course, we'll need some sort of loop or iterative process to make the abbreviations longer for the conflicting words.
+
+Bob: That's right. We also need to consider that once we resolve a conflict by extending an abbreviation, it doesn't create a new conflict with another word.
+
+Chris: Sounds a bit like hashing with collision resolution, doesn't it? Except here, our collision resolution mechanism is to make our abbreviations longer.
+
+Alice: Exactly, Chris. So, we have our approach. We first try the simplest abbreviation for all words, track conflicts, resolve them by making abbreviations longer, and ensure we don't introduce new conflicts in the process.
+
+David: Alright, so for implementing this, we need to be careful with our loops and condition checks. And keeping the abbreviations in the same order as the original list is also crucial.
+
+Bob: Definitely. So, in terms of coding, we're thinking about starting with constructing initial abbreviations, dealing with conflicts through some iteration, and making sure our output list maintains the original order.
+
+Chris: Should we consider efficiency as well? This approach sounds a bit brute force, especially with larger lists of words.
+
+Alice: Good point. Let’s also think about how we can optimize our solution once we have the basic logic in place. But yes, let’s first ensure our approach is solid in handling all the nuanced rules mentioned for the abbreviations.
+
+David: Sounds like we have a plan. Let’s jot down some pseudo-code and tackle this step by step, keeping an eye out for possible optimizations and ensuring we don’t miss any edge cases.
+
+Bob: Alright, sounds like a plan. Let's get started with the basic structure and go from there.

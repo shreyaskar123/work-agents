@@ -1,0 +1,33 @@
+**Alex**: Hey, did you have a chance to look into the problem I sent over about finding the `k` values in a BST that are closest to a target?
+
+**Jamie**: Yes, I did. It's a fascinating problem. We need to consider how to efficiently traverse the BST to find those `k` closest values to the given target, right?
+
+**Alex**: Exactly. Considering the properties of a BST, we know that for any given node, all the nodes in the left subtree are less than the node, and all the nodes in the right subtree are greater. We should be able to leverage this property to our advantage.
+
+**Sam**: That reminds me, wouldn't an in-order traversal of the BST give us the nodes in ascending order? We could use that feature somehow.
+
+**Jamie**: True, an in-order traversal does yield the nodes in non-decreasing order. But, we're also tasked with optimizing the solution. Doing a full in-order traversal would give us a time complexity of O(n), wouldn't it?
+
+**Alex**: Right. We need to aim for a better time complexity if possible, especially since the follow-up question hints at solving it in less than O(n) time when the tree is balanced.
+
+**Sam**: What about approaching it with a two-pointer technique after we have the sorted values from the in-order traversal? Although this still doesn't improve the worst-case scenario, it does give us a clear path toward finding the closest values.
+
+**Jamie**: I was thinking along those lines too. But to address the time complexity, perhaps we should consider how we can directly find and then only visit the `k` closest nodes without traversing the entire tree.
+
+**Alex**: There's also the aspect of the target value. Since the problem states it could be any value, we must determine how to handle values not present in the tree. That might affect our traversal strategy.
+
+**Sam**: Perhaps a modified binary search could work for finding the starting point? Given the target, we could find the closest value in the tree, then expand outwards from there.
+
+**Jamie**: That's a solid idea. We’d still need to figure out how to efficiently expand outwards to ensure we're always moving towards the next closest value, without unnecessary backtracking.
+
+**Alex**: And let's not forget the space complexity. Whatever additional data structures we use to keep track of the closest values or the traversal path should ideally not exceed O(k).
+
+**Sam**: Agreed. We could consider using a min heap or a similar structure to maintain the closest values as we traverse. That way, we can constantly compare the distance of the current node to the target against the farthest node in our set of `k` closest values.
+
+**Jamie**: It seems like we're converging on the idea of a focused traversal guided by the target value, with some efficient way—like a heap—to track the closest values we've found so far.
+
+**Alex**: Definitely. The heap approach combined with a smart traversal could help us approach the follow-up's requirement of less than O(n) runtime, particularly for a balanced BST.
+
+**Sam**: Alright, sounds like we have a rough strategy to start experimenting with. We’ll need to carefully consider the edge cases, like when the target is outside the range of values present in the tree.
+
+**Jamie**: True, dealing with edge cases will be crucial. Let’s start coding some of these ideas and see how they perform on different test cases.

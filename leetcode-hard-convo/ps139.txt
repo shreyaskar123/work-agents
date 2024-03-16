@@ -1,0 +1,29 @@
+**Alex:** So, we're tasked with finding the max height after dropping squares on an infinite x-axis. Let's start brainstorming how we can approach this problem.
+
+**Jordan:** Right. Each square drop is defined by its leftmost point and its side length. The important thing to note is that the squares are infinitely sticky on their bottom edges, meaning they'll attach to anything they fall on, maintaining their bottom parallel to the number line.
+
+**Taylor:** To illustrate, let's consider the first example where the inputs are [(1, 2), (2, 3), (6, 1)]. When we drop the first square with dimensions (1, 2), it simply lands on the number line since there's nothing else there.
+
+**Alex:** Exactly. And for the maximum height after dropping this square would be 2, as it directly sits on the x-axis. How do we handle when the next square is dropped?
+
+**Jordan:** Good question. When we drop the next square [(2, 3)], it's crucial to check its interaction with previously placed squares. Since its bottom edge is sticky, it lands on top of the first square for any overlapping part. This means the height will stack.
+
+**Taylor:** Precisely! So the overlapping concept is key here. We should think of a way to efficiently keep track of the heights at various points on the x-axis to calculate the stack heights of these squares.
+
+**Alex:** Right, so for managing the heights, we might consider some form of mapping or an array. However, given the potential scale (positions could start at 1 and go up to 10^8), we'll need an efficient way to manage this to avoid massive memory consumption.
+
+**Jordan:** Agreed. And after each square is placed, we need to find the current highest height among all squares. This needs to be updated efficiently with each drop to avoid recalculating from scratch.
+
+**Taylor:** In terms of actual implementation, I'm thinking we start by initializing an empty structure to keep track of the heights. As we iterate over each square, we calculate where it lands, how it interacts with existing squares, and update the heights accordingly.
+
+**Alex:** And after placing each square, we'd update our answer list with the current maximum height. It's crucial that our height tracking allows us to quickly determine how a new square will interact with those already placed.
+
+**Jordan:** Right. For implementation hints, I suggest looking into data structures that allow for dynamic updates and querying maximum values within a range, which sounds essential for efficiently updating and querying heights as squares are placed.
+
+**Taylor:** Also, considering the complexity, let's not forget edge cases, such as when squares are placed far apart on the x-axis or when they have the same dimensions and positions. Efficiently handling these scenarios will be crucial to our solution's performance.
+
+**Alex:** Agreed. It seems like we have a solid understanding of how to approach this problem. The key points are managing the heights efficiently, understanding the square placements' interactions, and updating the max height after each placement.
+
+**Jordan:** Exactly. With that strategy, we should be able to construct a solution that iterates over the input, updates our height tracking structure, and ultimately returns the list of max heights after each drop. Remember, the specifics on how to implement this efficiently will be crucial.
+
+**Taylor:** Alright, let's get coding and tackle this challenge step by step, keeping our discussed approach in mind.

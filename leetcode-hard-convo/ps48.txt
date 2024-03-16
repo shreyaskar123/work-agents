@@ -1,0 +1,39 @@
+Alex: Hey, Jordan and Taylor, I was hoping we could discuss how to solve this problem I’ve been grappling with. It involves evaluating mathematical expressions given as strings.
+
+Jordan: Sounds interesting, Alex. Can you give us more details about the expressions? What kinds of operations are we talking about?
+
+Alex: Sure! The expressions can include integers, plus and minus operations, and also parentheses for prioritizing operations, not to forget spaces that we might have to ignore.
+
+Taylor: That seems doable. Are we only dealing with whole numbers here?
+
+Alex: Yes, exactly. Whole numbers, addition, subtraction, and parentheses to alter precedence—that's about it.
+
+Jordan: Okay, I think the first thing we should consider is how to handle the parentheses. They indicate that the operation inside them should be evaluated first, right?
+
+Alex: Precisely. Dealing with them correctly is crucial to solving the problem.
+
+Taylor: It sounds like we might use a stack to keep track of the operations, especially when parentheses are involved. Each time we encounter an opening parenthesis, we could push the current total and the operation onto the stack.
+
+Alex: That's a solid approach, Taylor. It aligns with how we might recursively solve the sections inside the parentheses first.
+
+Jordan: What about the spaces and the integers? How should we approach parsing the string?
+
+Alex: We’ll need to iterate through the string character by character, carefully handling the integers, which could be more than one digit, and skipping the spaces entirely.
+
+Taylor: Right, so when we see a digit, we should keep reading the next characters until we reach a non-digit. That way, we can parse the whole number correctly.
+
+Jordan: Makes sense. And for the addition and subtraction, we could simply apply them as we parse through the string, considering the precedence set by any parentheses, of course.
+
+Alex: Yes, and don't forget the importance of the current sign we're working with. It changes every time we encounter a new plus or minus symbol.
+
+Taylor: About that, maintaining a variable for the current result and another for the sign sounds like a way to keep track of whether to add or subtract the next number.
+
+Jordan: Also, when we finish evaluating an expression inside parentheses, we should pop the stack to get back the previous total and operation, right?
+
+Alex: Exactly! We push onto the stack when we enter a parenthesis, and pop from the stack when we exit, applying the stored operation to the total.
+
+Taylor: It honestly sounds like we’ve got a good grasp on the approach. We need to iterate through the string, carefully parse numbers, handle operations according to precedence, and use a stack to deal with parentheses.
+
+Jordan: Agreed. Any implementation will have to carefully handle edge cases, of course, but this discussion provides a solid foundation.
+
+Alex: I appreciate both of your inputs. This definitely makes the path clearer for implementing a basic calculator to evaluate expressions given as strings. Let’s start coding and see how it goes!

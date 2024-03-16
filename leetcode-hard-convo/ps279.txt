@@ -1,0 +1,37 @@
+**Alex**: Hey, Taylor and Jordan, thanks for joining the brainstorm session. Today we've got a challenging algorithm to discuss. We're looking into scheduling jobs over a given number of days to minimize difficulty, factoring in dependencies and the fact a job's difficulty peaks for the day it's scheduled.
+
+**Taylor**: Sounds like a classic dynamic programming issue, doesn't it? We're essentially trying to minimize the total difficulty while respecting the sequential job completion requirement.
+
+**Jordan**: Right, Taylor. We need to think about how we can break this problem down. Since each job’s difficulty is known and we need to adhere to their order, it feels like we should find a way to partition the array representing job difficulties across the days optimally.
+
+**Alex**: Exactly, the core issue is finding those partitions. Considering we have to finish at least one job per day, there's a clear base case when the number of jobs equals the number of days. Each day would just take on the difficulty of its assigned job.
+
+**Taylor**: That's a good point, Alex. But what about cases where there are more jobs than days? We need to ensure the algorithm can handle grouping multiple jobs in a day while still aiming for the minimal difficulty over the entire schedule.
+
+**Jordan**: I believe we should also consider the opposite scenario where jobs are fewer than the days, which, as from the problem statement, is impossible and should return -1, correct?
+
+**Alex**: Correct, Jordan. It’s a constraint we need to account for. Now, focusing on our algorithm, we need a function that dynamically calculates the minimal difficulty given a certain day and a certain number of jobs completed.
+
+**Taylor**: For each day, if we iterate through the possible jobs we could complete, we could assess the maximum difficulty job of that day and add it to the minimum difficulty found from scheduling the rest of the jobs. 
+
+**Jordan**: That sounds like a recursive strategy with memoization might be beneficial here to avoid recalculating difficulties for the same scenarios.
+
+**Alex**: Indeed. We also need to iterate through the jobs in such a way that respects their dependencies, meaning we always consider sequences in order without skipping any jobs.
+
+**Taylor**: Can we also talk about how to handle the memoization structure? We'd need a way to store the minimum difficulty encountered for ‘x’ jobs scheduled by day ‘y’, right?
+
+**Jordan**: Yeah, a 2D array could serve well for this. The first dimension could represent the day, and the second the job index. This way, we can quickly look up the best solution found so far for any given state.
+
+**Alex**: I like where this is heading. We'll need to initialize our memoization array carefully, considering the base cases and ensuring we're not incorrectly caching impossible scenarios.
+
+**Taylor**: This approach will help us overcome the performance bottlenecks associated with the brute-force method. By building up from smaller subproblems, we only solve the necessary parts of the problem and reuse those solutions.
+
+**Jordan**: Before we wrap up, let’s not forget the edge cases, like ensuring we don’t suggest it’s possible to schedule three jobs over four days. Our function should return -1 for scenarios where scheduling is impossible under the given constraints.
+
+**Alex**: Absolutely, that's a crucial check. This has been a productive discussion, thank you both. Let's start prototyping based on this strategy and see how it holds up with some test cases.
+
+**Taylor**: Looking forward to it, let's make sure we also include unit tests covering the examples provided and the edge cases we discussed.
+
+**Jordan**: Agreed, testing will be key. Excited to see this solution come to life. Let's regroup after some initial coding and review our findings.
+
+**Alex**: Perfect, thanks Taylor, thanks Jordan. Catch up soon!

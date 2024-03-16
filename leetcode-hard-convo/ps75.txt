@@ -1,0 +1,35 @@
+**Alexa**: Hey everyone, thanks for joining today's brainstorming session. We've got a pretty interesting coding challenge on our hands with the Russian doll envelopes. 
+
+**Jordan**: Oh, that one. It sounds familiar. Isn't that the problem where you need to find the maximum number of envelopes you can nest inside each other without rotating them?
+
+**Alexa**: Exactly. Each envelope's dimensions are given as a pair of integers for width and height. An envelope can fit into another if both dimensions are strictly larger.
+
+**Morgan**: So, it's essentially a sorting problem at its core, right? We need to figure out the order to nest the envelopes.
+
+**Alexa**: You're on the right track, Morgan. But there's a twist because of the two dimensions. Simply sorting by width or height won't work because you might exclude envelopes that could lead to a longer nesting sequence.
+
+**Jordan**: Hmm, so sorting is part of the solution, but we need a way to handle both dimensions. This reminds me a bit of the longest increasing subsequence problem.
+
+**Morgan**: Oh, I see where you're going with this, Jordan. Sort in one dimension and then find a longest increasing subsequence in the other dimension. But wouldn't the sorting part be tricky because of the need to handle two dimensions simultaneously?
+
+**Alexa**: Great thought, Morgan. The sorting strategy is key here. If we sort by one dimension in ascending order, we need a strategy for the second dimension to prevent false positives—envelopes appearing to fit into others when they actually can't due to the first dimension.
+
+**Jordan**: So if we were to say, sort by width in ascending order, we could then sort by height in descending order for envelopes with the same width to avoid the issue Morgan mentioned.
+
+**Morgan**: Ah, then run a longest increasing subsequence algorithm on the heights! That sounds like it would effectively solve the problem by ensuring we consider each envelope in the best possible order to maximize our Russian Doll sequence.
+
+**Alexa**: Right. The trick with the longest increasing subsequence part is to efficiently find it, considering we could be dealing with thousands of envelopes.
+
+**Jordan**: Dynamic programming would be a good approach for that. Though, I remember there are more efficient algorithms for longest increasing subsequence problems, especially when dealing with large datasets.
+
+**Alexa**: Definitely, Jordan. It might be beneficial to research those algorithms and see how they could be adapted to our specific constraints here.
+
+**Morgan**: I think this gives us a good starting point. We'll need to carefully plan our implementation to make sure it handles all the edge cases, especially considering the sorting nuances and the efficiency of finding the longest increasing subsequence.
+
+**Alexa**: Agreed. Let's start by each of us drafting a component of the algorithm. Jordan, you could explore efficient LIS algorithms. Morgan, would you mind taking a stab at the sorting logic?
+
+**Jordan**: Sounds good to me. I'll start digging into algorithms right away and report back with what I find.
+
+**Morgan**: And I'll sketch out the sorting part and see how we can best organize the envelopes. This is going to be interesting!
+
+**Alexa**: Perfect. Let's reconvene once we have those parts fleshed out. We're on a good track to solve this intriguing problem!

@@ -1,0 +1,39 @@
+**Alex**: Hey Taylor, Jordan! I’ve got an interesting problem about scrambled strings for our project. Can you guys help me out?
+
+**Taylor**: Sure, Alex! What’s the challenge?
+
+**Alex**: We need to determine if a string `s2` is a scrambled version of another string `s1`. There’s a specific scrambling algorithm that involves splitting the string, possibly swapping the divisions, and then repeating the process recursively.
+
+**Jordan**: Interesting! So, it’s like a tree structure where each node can swap its left and right children, right?
+
+**Alex**: Exactly, Jordan! The base case is when the string is of length 1. Otherwise, we split, swap or not, and then recursively apply the algorithm to the pieces.
+
+**Taylor**: I see. So, for a string like "great", we could end up with "rgeat" after a series of such operations.
+
+**Alex**: Yup, that’s a perfect example, Taylor. The main question is, given two strings of the same length, how do we figure out if one is a scrambled version of the other without actually scrambling them?
+
+**Jordan**: Hmm, that sounds like it involves some form of dynamic programming or maybe recursive checks with memorization to avoid redoing work we’ve already done.
+
+**Taylor**: Right, we’d probably need to compare characters and their counts at first to quickly rule out impossible pairs. Then, delve into the recursive step, considering all possible split points?
+
+**Alex**: Exactly, Taylor! We need to be clever about it, especially considering the decision to split and whether to swap or not at each step. That's a lot of possibilities.
+
+**Jordan**: So, it sounds like for each possible split, we'd have two main scenarios to verify: one where we assume the split sections are kept in order and one where they’re swapped. Then apply the same logic recursively.
+
+**Taylor**: And each of those recursive steps needs to verify if the transformed substring could indeed form the target structure we’re looking into.
+
+**Alex**: Right. Also, remember that identifying whether the transformation is possible doesn't require us to actually perform it. We’re more about validating the potential to achieve the end result through the described process.
+
+**Jordan**: Got it. I suppose employing a cache of some sort to store intermediate results would massively reduce the computational overhead, especially for overlapping subproblems.
+
+**Taylor**: Absolutely, Jordan. A memoization approach or even bottom-up if we can determine an effective table structure for it.
+
+**Alex**: Thanks for brainstorming this, folks! So, our approach involves initial quick checks, recursive exploration of all possible scenarios with a split, and memorization to speed up the process. Let's start outlining the function and identify base cases, recursive cases, and where we can cut off unnecessary work early.
+
+**Jordan**: Sounds like a plan. I’ll draft the initial structure for the recursive function and where we’d integrate memoization.
+
+**Taylor**: And I’ll work on the logic for the base and recursive cases, especially focusing on how to iterate through the split points efficiently.
+
+**Alex**: Awesome, I’ll focus on setting up the tests and ensuring we have a good coverage across different scenarios, including edge cases. Let's reconvene with our parts and integrate them into a cohesive solution.
+
+**Taylor, Jordan**: Sounds good!

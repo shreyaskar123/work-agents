@@ -1,0 +1,35 @@
+**Alex**: Hey everyone, thanks for hopping on the call. We've got a really interesting problem to discuss today related to selecting elements from a sorted matrix to get the Kth smallest array sum. I’ve been racking my brain on how to approach it.
+
+**Jordan**: Can you clarify what you mean by "selecting elements to get an array sum"? I'm trying to visualize what the solution might look like.
+
+**Alex**: Sure, imagine you have a matrix where each row is sorted in non-decreasing order. You pick one element from each row and add them together to form a sum. The goal is to find out what the Kth smallest sum is when considering all possible combinations.
+
+**Casey**: Interesting. For a start, how do you think we could generate all possible combinations? That sounds like a brute force method.
+
+**Jordan**: Brute force sounds intensive, especially as the matrix size grows. Isn't there a smarter way to handle it without generating every possible combination?
+
+**Alex**: Right, that's the tricky part. Since each row is sorted, it feels like there's potential for optimization. I was thinking about how we can leverage that order.
+
+**Casey**: Maybe it’s worth considering using a priority queue or min-heap to keep track of potential sums, rather than brute-forcing every single combination.
+
+**Jordan**: Oh, a priority queue could be helpful. Could we then iterate somehow, keeping track of the sums as we go, and prioritizing which sum to consider next based on the smallest elements?
+
+**Alex**: Exactly, but there's also the challenge of knowing which combination of elements to pick from each row. We need a strategy for that.
+
+**Casey**: What about starting with the smallest elements from each row first and gradually increasing? There must be a systematic way to increase the sum to explore other possibilities.
+
+**Jordan**: It reminds me a bit of merging K sorted lists. We sort of know the smallest possible sum and can explore incrementally larger sums. Also, wouldn’t maintaining some kind of structure to remember which combination of indices we’ve already visited be crucial to avoid duplicate work?
+
+**Alex**: True, avoiding duplicates is crucial; otherwise, we'd waste a lot of time recalculating the same sums. Keeping track of which indices or combinations we've used could be managed alongside our priority queue.
+
+**Casey**: And regarding the ‘Kth’ part of the problem, it sounds like once we pop off K sums from our priority queue, the last one we pop should be our answer, right?
+
+**Jordan**: That's a neat summarization. So, our approach involves judiciously generating sums with a priority queue, smartly iterating through possible combinations, and carefully tracking our steps to avoid redundancy.
+
+**Alex**: Right, do we all feel comfortable trying to code something based on this discussion? Remember, the devil’s in the details with this one.
+
+**Casey**: Definitely more comfortable than when we started. There’s still a bit to figure out, but I think we have a solid direction.
+
+**Jordan**: Agreed, it feels like we’re on the right track. Let’s get to it and regroup if anyone hits a roadblock or discovers additional insights.
+
+**Alex**: Great, thanks for the brainstorm, folks. Let’s tackle this!

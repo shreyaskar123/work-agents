@@ -1,0 +1,41 @@
+**Alex**: Hey, I've been thinking about tackling the Skiplist design challenge. I feel it’s pretty intriguing given its performance is on par with trees but conceptually simpler. How do you think we should start?
+
+**Jordan**: Oh, that sounds like a fun problem. I guess the first thing we need to grasp is the underlying mechanism of Skiplists. They are essentially linked lists but with multiple levels to expedite traversal, right?
+
+**Alex**: Exactly. Imagine a standard linked list, but in addition to next pointers, some nodes have "express lanes" that skip several nodes ahead, reducing the steps needed to reach a target value.
+
+**Taylor**: So, it’s like having shortcuts. If you're looking for a specific number, you don't have to go through every single node, just hop across the shortcuts. But how do you decide which nodes get these extra pointers?
+
+**Jordan**: That’s where randomness plays a key role. The idea is to randomly assign these express lanes to nodes, ensuring that on average, we achieve a logarithmic time complexity for search, insert, and delete operations.
+
+**Alex**: Right. Every time we insert a new number, we flip a coin to decide whether to promote it to a higher level. But we shouldn’t forget the need to keep each level sorted for efficient searching.
+
+**Taylor**: Makes sense. But wouldn’t maintaining multiple levels add overhead when inserting or deleting elements?
+
+**Jordan**: Indeed, it might seem so. However, the beauty is that while we do have to update several pointers, the overall expected time complexity remains logarithmic. The trick lies in balancing between the speed gained during searches and the overhead introduced in maintaining multiple levels.
+
+**Alex**: Let’s talk about operations. Beginning with `search`, we would start at the topmost level and move rightward to find the range where the target number fits. If we overshoot, we drop down a level and continue. It’s like descending a staircase moving closer to our target.
+
+**Taylor**: Got it. For `add`, I assume we’d do a similar traversal to find the right spot, but then there’s the additional step of possibly promoting the newly inserted node to higher levels.
+
+**Jordan**: Correct. And about `erase`, it’s a bit trickier since we need to find the number across all levels it appears and remove it carefully, making sure to update the pointers to maintain the skiplist integrity.
+
+**Alex**: There's also the matter of handling duplicates. We need to ensure our skiplist can store multiple instances of the same number and properly deal with them during erase operations.
+
+**Taylor**: I see. Conceptually, I think we have a good grasp. It’s like you need to maintain a fine balance between efficiency and complexity to ensure the Skiplist operates smoothly.
+
+**Jordan**: Absolutely. And remember, the randomness aspect is crucial for achieving the average O(log(n)) time complexity. We need to implement a fair method for level promotion.
+
+**Alex**: Definitely. It’ll be interesting to see how this theoretical understanding translates into code. Implementing a skiplist from scratch without built-in libraries sounds challenging but doable.
+
+**Taylor**: Agreed. I think we’ve got a solid conceptual foundation. To get this right, we’d need to pay careful attention to detail, especially when handling edge cases.
+
+**Jordan**: Right. Let's draft up a basic structure and tackle each functionality one by one. We can go more in-depth as we face specific implementation challenges.
+
+**Alex**: Sounds like a plan. Let's start by sketching out the node structure and figure out a strategy for level promotion. Then, we can move on to the core operations.
+
+**Taylor**: Looking forward to seeing how our theoretical skiplist will evolve. This discussion’s been super helpful in wrapping our heads around the concept.
+
+**Jordan**: Agreed. Let’s regroup after some initial attempts and share our findings. It’s going to be an interesting project!
+
+**Alex**: Absolutely. Here’s to hoping our implementation behaves as efficiently as we envision! Let’s get to it.

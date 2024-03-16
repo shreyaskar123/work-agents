@@ -1,0 +1,45 @@
+**Alex**: Hey, Jordan and Taylor, thanks for taking the time to meet today. I came across this interesting challenge related to sorting words from an alien language, and I thought it could be a cool problem for us to dissect together.
+
+**Taylor**: Sounds intriguing! Could you give us a bit more context on the problem?
+
+**Alex**: Sure! We're given a list of strings that are words from an alien dictionary. These words are sorted lexicographically by the rules of this alien language. But here’s the twist - the order among the letters is unknown to us.
+
+**Jordan**: Oh, interesting! So, we're supposed to deduce the order of the letters in the alien alphabet from the way the words are sorted?
+
+**Alex**: Exactly! From that, we’ll have to return a string of the unique letters in this alien language sorted according to their lexicographical order.
+
+**Taylor**: What if the words given don’t offer enough information to deduce a clear order? Or if the order they imply is impossible?
+
+**Alex**: Good questions! If we find that there’s no valid solution, we should return an empty string. And if there are multiple valid solutions, any one of them would be acceptable.
+
+**Jordan**: This problem reminds me of graph theory, like topological sorting. Would that be a correct intuition?
+
+**Alex**: Spot on, Jordan! A topological sort is actually a perfect approach to solving this problem because we can treat the alphabet as a graph where each letter is a node, and the order between them implies directed edges.
+
+**Taylor**: Okay, let's think about constructing the graph. We could compare adjacent words in the list, right? To find those directed edges by identifying the first differing character between each pair?
+
+**Alex**: Perfect, Taylor! That’s exactly how we can identify the ordering between characters. By iterating over the list and comparing each pair of adjacent words, we can build up the graph and the in-degree of each node.
+
+**Jordan**: Once we have our graph and the in-degree of each node, we just need to perform a topological sort. I assume we'd use a queue to keep track of all nodes with an in-degree of zero?
+
+**Alex**: That's right. We'd start with nodes (letters) that have no incoming edges, meaning there’s no letter that comes before them. From there, we remove those nodes and decrease the in-degree of their neighbors. This essentially simulates "sorting" the characters.
+
+**Taylor**: What if we end up with a cycle in our graph? That would mean there's no valid ordering, correct?
+
+**Alex**: Exactly, Taylor. If at any point we can't find a node with an in-degree of zero but still have nodes left to process, it implies there's a cycle - an inconsistency. That means we return an empty string because the input is invalid.
+
+**Jordan**: I see. And in terms of output, we just gather the letters in the order we process them, right?
+
+**Alex**: Yes, the order in which we remove letters from the graph (or queue) will be our alien language's lexicographical order.
+
+**Taylor**: This has been a helpful breakdown. But, how do we handle the constraint where multiple solutions are possible?
+
+**Alex**: In those cases, since any valid order is acceptable, the specific solution we find depends on the starting point of our topological sort. Different start points could yield different valid sorts if the graph allows for flexibility.
+
+**Jordan**: Got it! This has been really enlightening. I think we've got a good handle on how to tackle this problem now.
+
+**Alex**: Glad to hear that! Thanks for brainstorming this with me. Let’s regroup later and code out some potential solutions. How does that sound?
+
+**Taylor**: Sounds like a plan. Looking forward to it!
+
+**Jordan**: Me too. Thanks, Alex, for bringing this problem to us. It's been a fun session.

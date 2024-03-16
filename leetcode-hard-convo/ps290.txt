@@ -1,0 +1,35 @@
+**Alice**: Hey, have you seen the latest problem we need to solve for the upcoming project? It's about calculating the probability of a frog being at a certain vertex after 't' seconds.
+
+**Bob**: Oh, the one with the frog jumping on an undirected tree? Yeah, I took a quick look. It seems like a classic probability problem combined with tree traversal, doesn't it?
+
+**Alice**: Exactly! The tree is undirected and consists of 'n' vertices. We're supposed to calculate the probability of the frog being on a target vertex after 't' seconds considering it starts from vertex 1.
+
+**Charlie**: So, the frog jumps to an unvisited, directly connected vertex each second, right? And it stops when it can't reach any unvisited vertices?
+
+**Bob**: Correct, but the tricky part is when the frog has multiple vertices to jump to, it chooses randomly. That's where the probability calculation comes into play.
+
+**Alice**: And from what I read, we're given the edges of the tree in an array, which tells us how the vertices are connected.
+
+**Charlie**: Makes sense. So, how do you propose we approach this? I was thinking about using some sort of depth-first search (DFS) to navigate through the tree.
+
+**Bob**: DFS could work, but considering the problem also involves calculating probabilities and keeping track of time, I think we may also need to incorporate dynamic programming to avoid recalculating probabilities for the same vertices multiple times.
+
+**Alice**: Agreed. We also need a way to represent the tree structure based on the edges given, maybe an adjacency list?
+
+**Charlie**: Oh, that's a good idea. An adjacency list would allow us to easily see which vertices are directly connected and thus where the frog can jump. We'll need that for calculating probabilities for each jump.
+
+**Bob**: And about calculating the probability for the target vertex, we'll need to keep track of the time 't', ensuring we calculate the probability of the frog being there exactly after 't' seconds.
+
+**Alice**: Right. So, for example, if 't' is 2, and the frog has a path that reaches the target in 2 jumps, we calculate the probability of taking that path among all possible paths from the starting point.
+
+**Charlie**: We might also need to consider the base cases, like if 't' is 0 or if the target is the starting vertex.
+
+**Bob**: True. Plus, we need to factor in the edges and vertices constraints. The maximum size of the tree could affect our approach's performance.
+
+**Alice**: I think we have a good starting point. We'll use the adjacency list to represent the tree, utilize DFS for traversal, and incorporate dynamic programming to track and calculate probabilities efficiently.
+
+**Charlie**: Sounds like a plan. Let's start by drafting the algorithm outline and identify any potential issues or optimizations as we go. 
+
+**Bob**: We'll also need to ensure our solution is within the acceptable error margin; the problem mentions that answers within `10^-5` of the actual value are accepted.
+
+**Alice**: Perfect, let's get to it and see how close we can get to solving this puzzle.

@@ -1,0 +1,31 @@
+**Alex**: Hey Jordan, could you help me understand how to find the minimum index for a target in a mountain array? I'm dealing with an interactive problem where the array can't be accessed directly.
+
+**Jordan**: Sure, Alex. The key thing to note here is that the mountain array is divided into two parts: ascending and descending. First, you need to find the peak of the mountain which separates these two parts.
+
+**Alex**: Okay, so find the peak first. How do I do that without direct access to the array elements?
+
+**Jordan**: You'll need to implement a binary search. By calling `MountainArray.get()` on middle elements, you can determine if you're in the ascending or descending part. If the element at `mid` is greater than the element at `mid + 1`, then you're in the descending part, and vice versa.
+
+**Alex**: Got it. And once I find the peak, I just search for the target in both halves?
+
+**Jordan**: Exactly, but with a slight twist. For the ascending part, it's a standard binary search. For the descending part, the condition to move left or right in the search changes because the elements are in reverse order.
+
+**Alex**: Makes sense. Should I be worried about making too many calls to `MountainArray.get()`?
+
+**Charlie**: Yes, you should optimize your searches. Since you're limited to 100 calls, ensure your binary searches are as efficient as possible. Avoid unnecessary calls by storing and reusing the results of `MountainArray.get()` when possible.
+
+**Alex**: That's a good tip, thanks. So, after I search both parts of the mountain, what if the target isn't found?
+
+**Jordan**: If the target isn't found in either part, just return `-1`. That signifies the target isn't in the array. 
+
+**Alex**: I see. And if I find the target in both halves, I should return the minimum index, right?
+
+**Charlie**: Correct. If the target is in both the ascending and descending parts, compare their indices and return the lower one.
+
+**Alex**: This was really helpful, thank you, both! I feel more confident about tackling this problem now.
+
+**Jordan**: Glad to help. Remember to carefully handle the edge cases, like ensuring the peak isn't the target itself.
+
+**Charlie**: Yeah, and keep an eye on the performance. Think about the binary search properties and how they apply here. Good luck!
+
+**Alex**: Thanks! I'll start coding this up and let you know how it goes.

@@ -1,0 +1,35 @@
+**Alex**: Hi everyone, thanks for joining this brainstorming session. We have an interesting problem at hand regarding finding the maximum score from valid paths across two sorted arrays with distinct integers.
+
+**Jordan**: Yes, it sounds intriguing. The concept of switching arrays upon encountering common elements adds an interesting twist. Could you brief us more on how we define a valid path here?
+
+**Alex**: Certainly. A valid path involves starting from index 0 of either array, moving through it, and switching to the other array whenever we encounter a value that’s present in both arrays. But, we only count a common value once in the score.
+
+**Charlie**: So, it's like navigating with the option to jump ships whenever we see a better opportunity, right? And our goal is to maximize the sum of unique values in our path.
+
+**Alex**: Exactly, Charlie. And remember, we can initiate the traversal from either of the two arrays.
+
+**Kim**: Sounds like a dynamic programming problem or maybe greedy due to the sorted nature of arrays. But the switching part makes it tricky. Do we have an approach to begin with?
+
+**Jordan**: I was thinking along the lines of pointers. Since both arrays are sorted, we can maybe use two pointers to move through them efficiently.
+
+**Alex**: That’s a good point, Jordan. The sorted nature does lend itself to a two-pointer technique. We need to consider how to track scores as we move along and decide to switch paths.
+
+**Charlie**: What if we keep track of the cumulative scores for each path separately and then at each intersection, decide whether to switch based on potential score gains?
+
+**Kim**: That makes sense. Plus, we need to factor in the unique values. A hash table might be useful for tracking if we've already encountered a specific value, especially for the switch condition.
+
+**Jordan**: Right, but let’s not forget the performance aspects. Hash tables for tracking encountered values seem a bit overhead-intensive. Given the arrays are sorted and distinct by themselves, perhaps we can leverage that to skip the hash table.
+
+**Alex**: Good points, everyone. Considering the constraints, memory efficiency and execution time are crucial. We should also think about how the answer might exceed integer limits and how to handle that.
+
+**Charlie**: Oh, the modulo aspect. Yes, we must ensure that our score calculations are modulo 10^9 + 7 at each step to avoid overflow.
+
+**Kim**: I think we’re onto something with the two-pointer and dynamic tracking strategy. We just need to outline our steps carefully and keep track of scores and positions in both arrays as we progress.
+
+**Alex**: Definitely. Let's outline a pseudo-code based on this discussion, keeping in mind the need to handle large numbers and efficiently manage our traversal and scoring system.
+
+**Jordan**: Once we have that draft, we can run through a few examples manually to ensure our approach covers all bases and doesn’t miss any edge cases.
+
+**Charlie**: Agreed. And let’s not forget to return the maximum score modulo 10^9 + 7 finally. This will be essential in passing all test scenarios.
+
+**Alex**: Great input, everyone. Let’s sketch out our strategy, refine it, and then we can discuss potential optimizations or pitfalls further. Thanks for the productive discussion!

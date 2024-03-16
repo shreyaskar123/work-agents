@@ -1,0 +1,27 @@
+**Eli:** Hey, everyone. Thanks for meeting today. I came across this problem I think would be interesting for us to collaborate on. It's about implementing a calendar system that can track the highest number of events overlapping at any moment. Have you dealt with something similar before?
+
+**Jordan:** Yeah, I vaguely remember doing something with time intervals in a previous project. It sounds like we’re dealing with a scheduling algorithm, right? Where we check if any of the events intersect in their timings?
+
+**Eli:** Exactly! They call it a `k`-booking in the problem statement, where `k` represents the maximum number of overlapping events. Our task is to figure out the largest `k` after each new event is added to the calendar.
+
+**Riley:** So, we're not just checking if an event can be added to the calendar but also how it overlaps with existing events. That sounds like it could get complicated with many events.
+
+**Alex:** Right, I'm imagining that for each new event, we'd have to compare it against all existing ones to see where the overlaps occur. Could get pretty inefficient with a brute force approach, though.
+
+**Eli:** That's a good point, Alex. Efficiency is key, especially since the constraints suggest up to 400 events could be booked. We need a more optimized way to track the overlaps without having to compare every event with every other one.
+
+**Jordan:** What if we use some sort of data structure to keep track of the starts and ends of events separately? That might make it easier to incrementally update the maximum overlap whenever we add a new event.
+
+**Riley:** Oh, like using a map or a tree structure where we could count the start and end of each event? Then, we just need to iterate through that structure to find the maximum overlap?
+
+**Alex:** Yeah, and if we care about the order of events, maybe leveraging something like a TreeMap in Java could help. It auto-sorts keys as they’re added, which could simplify finding overlaps.
+
+**Eli:** I think you're onto something. By marking the start and end of each event distinctly and adjusting counts, we could dynamically calculate overlaps as events are added. That would definitely streamline things.
+
+**Jordan:** I'm curious about edge cases, though. We'd have to be careful about how we handle events that start or end at the same time, to ensure our counter adjustments are accurate.
+
+**Riley:** True, precision in how we increment or decrement our tracking as events start or end will be crucial. And ensuring we understand the problem's definition of an event interval being `[start, end)` - end being exclusive.
+
+**Alex:** Sounds like we'll need thorough testing, especially with edge cases to ensure our implementation is robust. Should we draft up some pseudocode on a shared document to start fleshing out the logic?
+
+**Eli:** Great idea, Alex. Let's do that, and we can discuss more as we go. I’m confident we’ll crack this with our combined expertise. Thanks for brainstorming this, team. Let’s get started.

@@ -1,0 +1,33 @@
+**Sam:** Hey everyone, we've got this interesting challenge on binary trees we need to work through. The goal is to calculate the vertical order traversal of a binary tree. Any initial thoughts on how we can approach this?
+
+**Alex:** Right, so we're dealing with binary trees here. First thing that comes to mind is using a breadth-first search (BFS) to traverse the tree. We'd need to keep track of the vertical and row positions of each node, I think.
+
+**Jamie:** Exactly, Alex. I was thinking along the same lines. We could use a queue to help with the BFS, and maybe a map or dictionary to keep track of columns and their respective nodes and rows.
+
+**Taylor:** Yeah, and don't forget, if there are nodes in the same row and same column, we need to sort them by their values. This sorting is crucial for getting the correct output.
+
+**Sam:** Right, that's an important detail. How do you suppose we keep track of the positions? We need a way to uniquely identify each position for sorting and ordering purposes.
+
+**Alex:** We could use a tuple for the row and column positions as the key in our map. The value could be a list of nodes that fall into that position. This way, we can easily retrieve and sort nodes for any given position.
+
+**Jamie:** Good point, Alex. Once we have that map filled out, we'd need to sort it by column and then by row, too, to make sure we're respecting the vertical order traversal rules.
+
+**Taylor:** Remember, the vertical order means we start from the leftmost column. So, after sorting, we'll need to iterate through our map from the lowest to the highest column, appending the nodes in the correct order based on their rows and values.
+
+**Sam:** Makes sense. So, it seems like the overall approach involves a BFS with a queue to explore the tree, a map to keep track of positions, and sorting to ensure the nodes are in the right order. Does anyone have ideas on how to handle nodes with the same row and column but different values?
+
+**Alex:** That's where the sorting by value comes in. For nodes in the same position, we'll sort them before adding to our final output list. This sorting happens after we've categorized all nodes into their respective positions.
+
+**Jamie:** Also, I think it would be useful to keep the column range in mind during traversal. It would make it easier to iterate through our position map in the correct order later on.
+
+**Taylor:** Absolutely. Keeping track of the minimum and maximum columns seen during traversal should do the trick. This allows us to iterate through the columns in the correct order without missing any.
+
+**Sam:** Great discussion, everyone. It sounds like we've got a solid plan. To recap, we'll perform a BFS, utilize a map for positioning, sort nodes within the same position, and finally assemble our output respecting the vertical order traversal rules.
+
+**Alex:** Yeah, I think that covers everything. Once we've got our map sorted and organized, generating the final output should be straightforward.
+
+**Jamie:** Agreed. It's all about systematically breaking down the problem and tackling each part. Can't wait to see this in action.
+
+**Taylor:** Same here. Let's get to coding and see how our approach fares with different examples. It'll be interesting to see how it handles various tree shapes and values.
+
+**Sam:** Definitely. Thanks for the insights, everyone. Let's get this implemented and test it out. If anyone runs into issues or has further optimizations, we'll regroup and discuss.

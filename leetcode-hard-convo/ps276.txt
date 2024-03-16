@@ -1,0 +1,35 @@
+Alex: Hey everyone, thanks for joining today's brainstorming session. Let's dive into figuring out an efficient strategy without directly solving it. We have this interesting problem where we calculate the minimum total distance to type a string using a non-traditional keyboard layout. Thoughts?
+
+Jordan: To start, since each letter is located at specific coordinates in the XY plane, calculating distance between any two letters boils down to using the Manhattan distance formula, right?
+
+Alex: Exactly, Jordan. The Manhattan distance formula |x1 - x2| + |y1 - y2| will be key here. Now, the unique twist is using only two fingers and optimizing to minimize the total distance. How should we approach the initial positions of the fingers?
+
+Casey: Maybe we shouldn't fix the fingers' starting points. Since the initial positions are free and don't add to the total distance, it could be strategic to decide where to "place" them based on the first few letters?
+
+Morgan: I was thinking along similar lines, Casey. For the first letter, it doesn't matter which finger we use since the cost is zero. After that, for each letter, we could decide which finger to use next based on the minimum distance from the current positions.
+
+Alex: That’s a solid concept, Morgan. What about dynamically choosing the finger for the next letter? Like, for each letter, we calculate the potential distances for both fingers and choose the one that results in a lower added distance.
+
+Jordan: Sounds like this problem screams for a dynamic approach, where we keep track of the cumulative minimum distance while considering the choices of fingers for each step.
+
+Casey: I'm also thinking about the data structure to keep track of these calculations. A 2D array or maybe memoization could help store distances already calculated, so we don't end up doing repetitive work for each decision.
+
+Morgan: True, Casey. Memoization would help optimize calculations, especially since the problem seems to have overlapping subproblems, like deciding the optimal finger for subsequent letters.
+
+Alex: Absolutely, and we should also consider how to iterate through the string and manage the current state - which letters are being pointed at by each finger, and the cumulative distance so far.
+
+Jordan: One more thing to consider would be edge cases, such as letters located very far apart on the layout. Tests should include words where letters alternate sides of the keyboard or are close together.
+
+Casey: Plus, with constraints up to 300 letters, ensuring our solution scales well with the input size is crucial. We want to avoid exponential time complexity.
+
+Morgan: Definitely, ensuring a polynomial time complexity, likely through a dynamic programming approach, seems the way to go. Leveraging the memoization technique should help keep us within feasible execution time.
+
+Alex: Awesome insights, everyone. It looks like we have a good starting point—using dynamic programming, memoization, and considering each letter's choice in the context of minimizing total distance. This session has provided a solid foundation for tackling the problem without directly solving it.
+
+Jordan: Agreed, it’s been a productive discussion. Shall we start drafting some pseudocode and tests based on these ideas?
+
+Casey: Definitely, that’s the next step. Let's reconvene with some initial code and test cases soon.
+
+Morgan: Looking forward to it. Thanks all for the brainstorm!
+
+Alex: Thank you, everyone. Let's make it happen. Catch up soon!

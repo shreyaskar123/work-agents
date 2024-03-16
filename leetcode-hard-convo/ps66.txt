@@ -1,0 +1,29 @@
+**Mia**: Hey, Jordan! I was looking into that algorithm problem we got assigned for the project. You know, the one about finding the counts of smaller elements to the right?
+
+**Jordan**: Oh, right. That sounds like a classic problem. So, we're given an integer array, and we need to figure out, for each element, how many elements to the right are smaller, right?
+
+**Mia**: Exactly. The output should be an array where each position tells you the number of smaller elements to the right of the corresponding position in the input array.
+
+**Jordan**: Got it. Let's break it down. For a brute force approach, I guess we could just look at each element and then compare it to every other element to its right. That sounds straightforward but quite inefficient.
+
+**Mia**: Yeah, that would be O(n²) complexity. For large arrays, that's pretty much infeasible. We should consider something that optimizes this. Maybe leveraging sorting or some kind of tree structure?
+
+**Jordan**: An interesting approach could be to somehow use a balanced binary search tree. As we traverse the elements from right to left, we could insert them into the tree. That way, for each insertion, we could also count how many elements already in the tree are smaller.
+
+**Mia**: That makes sense. Insertion in a balanced BST is logarithmic, so it'd be more efficient than the brute force. But, how would we deal with duplicates in this context? Since if we count the elements less than the current, duplicates might skew the results.
+
+**Jordan**: Good point. We could augment the tree nodes to store not just the value but also a count of how many times the same number has been inserted. That way, when we're doing the comparison while inserting, we can accurately know the number of elements actually less than the current one.
+
+**Mia**: That sounds like a solid plan. For insertion and counting, the overall time complexity should average out to O(n log n), right? Since each insert operation in the BST is O(log n) and we're doing it for each element.
+
+**Jordan**: Right. The space complexity would primarily depend on the size of the tree, which is O(n), considering the worst-case scenario where all elements are unique.
+
+**Mia**: Cool, that pretty much sketches out the approach. To implement this, we'd have to write a custom tree insert function that handles the counting and deals with duplicates appropriately.
+
+**Jordan**: Definitely. We should also consider edge cases, like the arrays in the examples were pretty straightforward, but what about an already sorted array or a completely reverse-sorted array?
+
+**Mia**: For a sorted array, our approach should still work seamlessly, considering each element would just be inserted without finding any smaller elements to the right. For a reverse-sorted array, each insertion would give us the total count of inserted elements so far, which aligns with what we want.
+
+**Jordan**: Looks like we got our plan. Let’s start drafting the code structure and tackle those edge cases as we test the implementation. Would be interesting to benchmark it with the brute force approach, just to see the improvement in efficiency.
+
+**Mia**: Agreed. Let's get to coding and see how it performs. We've got the theoretical part down; the real fun begins with implementation.

@@ -1,0 +1,31 @@
+**Alex:** Hey Jamie, I’ve been scratching my head around this problem for a while now. It’s about stacking up cuboids to get the maximum height. Each cuboid can be rotated, so we need to choose the best orientation before stacking. Got any ideas?
+
+**Jamie:** Interesting challenge, Alex. It sounds like we’ll need to consider each cuboid's dimensions comprehensively before making any decisions. Have you considered sorting the cuboids in some way to simplify the problem?
+
+**Alex:** Sorting? How would that help us here?
+
+**Jamie:** Well, if we sort each cuboid’s dimensions internally first, we can ensure we always deal with them in a consistent order. This might help us when comparing cuboids for stacking feasibility.
+
+**Alex:** Oh, that’s a good point. I suppose we could sort each cuboid’s dimensions from largest to smallest, for instance. But how do we decide which cuboids can be placed on top of each other?
+
+**Jamie:** Once we have each cuboid sorted internally, we could then sort all the cuboids based on these dimensions. This way, we could make sure we always consider larger cuboids before the smaller ones.
+
+**Alex:** I see. So, in a way, we’re setting ourselves up to only look at cuboids in descending order of size or potential base area. But, there’s the height dimension to consider for the maximum stack height. How does that fit into this strategy?
+
+**Jamie:** That’s where dynamic programming could come in handy. We could use a DP approach to keep track of the maximum height obtained by stacking cuboids up to the current one we're considering. For each cuboid, we check if it can be placed on top of another, considering its rotation.
+
+**Alex:** Dynamic programming, huh? So, we’re essentially trying to find a sequence of cuboids that leads to the maximum height, where each cuboid satisfies the stacking condition compared to the one below it. 
+
+**Jamie:** Exactly! Remember, the condition is that each dimension of the upper cuboid must be less than or equal to the corresponding dimension of the lower cuboid. The trickiest part is probably ensuring we check all possible rotations and sequences.
+
+**Alex:** Right, rotating means we can change which dimension is considered the height for stacking. I’m thinking, for each cuboid, we’d need to consider all orientation possibilities in our DP formula somehow.
+
+**Jamie:** Correct. We’d make decisions based on comparing the dimensions of the current cuboid in all possible orientations with those below it in the stack. Calculating the maximum stack height up to each cuboid gives us a way to build up to the overall solution.
+
+**Alex:** This sounds complex but feasible. We’ll need to keep detailed notes on each cuboid’s orientation and position in the stack as part of our DP state I guess.
+
+**Jamie:** Indeed, and don't forget to consider the initial condition of the DP and how to transition between states effectively. It’s crucial for solving this optimally.
+
+**Alex:** Definitely. Thanks for the brainstorming, Jamie. I feel like I’ve got a solid starting point now. I’ll go ahead and draft some pseudocode to outline this approach. 
+
+**Jamie:** Anytime, Alex. Feel free to bounce more ideas off me as you flesh out the solution. This problem requires careful consideration of each step, but I’m sure you’ll crack it.

@@ -1,0 +1,37 @@
+Alex: I think a good starting point is to first break down the problem. Essentially, we’re tasked with finding all substrings of a given string and then calculating the unique characters in each substring, right?
+
+Jordan: Yeah, exactly. But we also need to consider that substrings can be repeated, and all those repetitions matter for our final sum. It’s not just about finding unique characters in isolated substrings.
+
+Morgan: So, if we take the example of "ABC", the unique count for each substring is pretty straightforward since there are no repeating characters in any substrings. But for something like "ABA", the middle "A" affects the count for substrings that include both "A"s.
+
+Alex: Right, the key challenge then seems to be efficiently generating all the possible substrings and then applying our `countUniqueChars` function on each of them. Any thoughts on how we might approach generating the substrings?
+
+Jordan: There’s the brute force approach where we could use two loops to generate all possible substrings. The outer loop could fix the start position, and the inner loop could vary the end position, starting from the start position to the end of the string.
+
+Morgan: That would work, but iterating over each substring and calculating unique characters for each could get expensive, especially for long strings.
+
+Alex: Agreed. We'd need a more efficient way to identify unique characters. Maybe we can map characters to their occurrences while generating substrings?
+
+Jordan: Possibly, but keep in mind the unique character count is context-dependent. A character considered unique in one substring might not be unique in another. 
+
+Morgan: There's also the part about returning the answer modulo `10^9 + 7`. We need to ensure our final sum doesn’t cause an overflow.
+
+Alex: Definitely. We should incorporate the modulo operation in our summation process to keep our numbers manageable.
+
+Jordan: So, to sum up, our strategy involves generating all possible substrings, calculating the number of unique characters in each, and keeping our sum operation under control with modulo. 
+
+Morgan: Plus, we haven’t even touched on optimization. Looping through all substrings won’t be efficient for large strings. We might need to explore more about counting unique characters in a substring without having to explicitly create the substring itself.
+
+Alex: Right, maybe a dynamic programming approach or some form of precomputation could help us avoid recalculating information we’ve already discovered in previous iterations.
+
+Jordan: I think this is a good point to start diving into specifics, like coding up the brute force solution and identifying where we can optimize.
+
+Morgan: Agreed. Let’s start by tackling the problem piece by piece, beginning with the brute force method, and iterate towards optimization. Understanding the naive approach will help us in identifying potential opportunities for improvement.
+
+Alex: Sounds like a plan. Let’s also keep an eye out for edge cases. Handling strings with repeating characters like in "ABA" will be crucial in coming up with a correct solution.
+
+Jordan: I’ll start working on the substring generation part, and maybe we can reconvene to discuss findings and possible optimizations?
+
+Morgan: Sounds good. I'll look into effective ways to count unique characters and how we might apply mod operations efficiently.
+
+Alex: Great, let’s reconvene after. We’re approaching this systematically, which is promising. Looking forward to seeing what we come up with!

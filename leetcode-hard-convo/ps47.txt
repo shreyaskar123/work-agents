@@ -1,0 +1,37 @@
+**Alex**: Hey folks, glad we could meet up. So, I've been bouncing around the idea of creating an algorithm to visually reproduce a city's skyline based on building dimensions. Thought it could be a challenging project for us.
+
+**Jordan**: Sounds interesting, Alex. How do you plan on tackling this? The input is just a bunch of rectangles when you break it down, right?
+
+**Alex**: Exactly, Jordan. Each building is represented by a triplet: the x-coordinates of its left and right edges, and its height. Our job is to merge these to form the city's skyline.
+
+**Pat**: Merging them sounds complicated. How do we deal with overlaps and varying heights?
+
+**Jordan**: I suppose we start by looking at where buildings overlap, right? Then, figure out which parts of those buildings will actually contribute to the skyline.
+
+**Alex**: Spot on, Jordan. It's all about processing those key points. Whenever a building starts or ends, it could potentially alter the skyline.
+
+**Pat**: So, are we talking about breaking this down into a series of start and end points and then sorting them somehow?
+
+**Alex**: Yep, we essentially flatten the buildings into a series of events—either a start or an end of a building. The tricky part is how we handle the heights when buildings overlap or when one ends and another starts.
+
+**Jordan**: I imagine handling the heights correctly is critical for avoiding consecutive horizontal lines of the same height in the output. How do we avoid that?
+
+**Alex**: We'll need some way to keep track of the current tallest buildings as we sweep across these event points. This way, we can adjust the skyline height only when it actually changes.
+
+**Pat**: Ah, so something like a priority queue could work for tracking the tallest building at any point?
+
+**Alex**: Exactly, Pat. A priority queue allows us to dynamically remove buildings as we pass their end points and adjust the skyline height accordingly.
+
+**Jordan**: Makes sense. And I assume for every change in height, we'd mark that as a key point in our output?
+
+**Alex**: Right. Whenever the current maximum height changes, that's a key point in our skyline. We'd record the x-coordinate and the new height at that point.
+
+**Pat**: Okay, but what about the terminating point of the skyline? How do we ensure we end it correctly?
+
+**Alex**: Good question. The last point in our output should always reflect the end of the rightmost building, ensuring the skyline descends back to zero.
+
+**Jordan**: Sounds like we've got a solid plan. Managing all these moving parts—events, heights, and the dynamic nature of the skyline—sounds challenging but doable.
+
+**Pat**: Definitely. I'm interested to see how we handle the implementation details, especially around efficiently managing the priority queue and avoiding unnecessary changes in the skyline.
+
+**Alex**: Agreed. I think if we start coding and break this problem down step by step, we'll find a clean solution. Let's get this project started and see where we can take it.

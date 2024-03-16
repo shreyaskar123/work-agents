@@ -1,0 +1,25 @@
+**Alex**: Hey everyone, glad we could meet up to brainstorm on this challenge. We're looking at merging `k` sorted linked-lists into one sorted linked-list. Each of these linked-lists is sorted in ascending order. How do you guys think we should approach this?
+
+**Jordan**: Right, it sounds a bit like the merge step in the merge sort algorithm, doesn't it? Where we take two sorted arrays—or in this case, linked-lists—and merge them together in sorted order.
+
+**Morgan**: Definitely, Jordan. If we think of each linked-list as already sorted, we just need a way to merge them efficiently. For two linked-lists, we'd typically compare the heads of each list, pick the smaller one, and then proceed recursively or iteratively. But we have `k` lists here.
+
+**Alex**: That's a good point. We could start by merging lists two at a time. But given we have `k` lists, wouldn’t that approach be a bit inefficient?
+
+**Jordan**: It could be, yes, especially if `k` is large. Merging the lists two at a time would have us going over the combined length of the lists several times. Maybe we could use a more direct approach to reduce the number of total comparisons.
+
+**Morgan**: What about using a priority queue or a min-heap? We could push the head of each list into the heap, ensuring we always have the smallest element at the top. It naturally aligns with the fact that we're dealing with sorted linked-lists.
+
+**Alex**: I like that. So, essentially, we would initialize the heap with the head of each list. Then, as we pop elements from the heap, we push the next element from the same list the popped element belonged to, right?
+
+**Jordan**: Exactly, and since the heap ensures the minimum element is always on top, we keep pulling from it until it's empty. Each pop gives us the next element in the final merged list.
+
+**Morgan**: One thing to remember is to check for empty lists in the input. Our initial push to the heap should ignore those.
+
+**Alex**: True, that's a good catch. Handling edge cases like empty lists or the entire input being empty is crucial. 
+
+**Jordan**: Once we've merged all elements, we should have traversed each list exactly once, right? Making the time complexity primarily dependent on the total number of elements across all lists, but also taking advantage of the logarithmic time complexity of heap operations.
+
+**Morgan**: Correct, and considering we need to handle potentially `10^4` lists with up to `500` elements each, optimizing how we merge is key. Using a heap should keep things manageable.
+
+**Alex**: Awesome discussion, folks. It sounds like we have a solid plan with the priority queue approach. Let's prototype this and see how we perform with some test cases. Appreciate all the insights!

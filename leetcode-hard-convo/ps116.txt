@@ -1,0 +1,29 @@
+**Mia**: So, we're tasked with designing an in-memory file system. How should we approach this?
+
+**Alex**: I think we should start by understanding the core functionalities we need to implement. Based on the task, we have four main functions: `ls`, `mkdir`, `addContentToFile`, and `readContentFromFile`.
+
+**Jordan**: Right, and each function seems to handle files and directories differently. For example, `ls` should list files if it's a file path or directories if it's a directory path.
+
+**Mia**: It sounds like we need some sort of structure to hold our files and directories. Any ideas?
+
+**Alex**: We could use a Trie-like structure. Each node could represent a directory, which can contain other directories (nodes) or files.
+
+**Jordan**: That makes sense. Plus, we can easily navigate through the structure to find specific files or directories, which seems essential for functions like `ls` or `readContentFromFile`.
+
+**Mia**: Okay, let’s talk about the `mkdir` function. How do we handle creating new directories, especially nested ones that don’t exist yet?
+
+**Alex**: We should traverse the Trie from the root. If a part of the path doesn't exist, we create a new node for it. It's crucial for handling nested paths correctly.
+
+**Jordan**: And for `addContentToFile`, if a file doesn't exist at the specified path, we need to not only create the file but also ensure its directory path exists. And if it does exist, we append the new content.
+
+**Mia**: That means we might need a way to distinguish between file and directory nodes within our structure. Perhaps flag them or store them differently?
+
+**Alex**: Yes, a flag could work. Also, storing file content within the node representing the file should allow us to directly append new content or read it when needed.
+
+**Jordan**: Speaking of reading, implementing `readContentFromFile` sounds straightforward with this approach. Navigate to the file node, then return its content.
+
+**Mia**: Seems like we have a solid plan. We'll need to implement these functions with careful consideration of error handling, especially for invalid paths and operations on non-existent files or directories.
+
+**Alex**: Absolutely. Let's also keep performance in mind, especially for the `ls` command, since sorting the files and directories could get expensive with a large file system.
+
+**Jordan**: Great! So, we have a path forward. We'll start by defining our Trie structure and then incrementally implement and test each function to ensure our in-memory file system works as expected.

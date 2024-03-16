@@ -1,0 +1,39 @@
+**Alex**: Hey everyone, thanks for joining the meeting on such short notice. I came across this challenging algorithm problem we need to solve. It's about finding common free times across multiple employees' schedules. Each employee's schedule is represented as a list of non-overlapping intervals in sorted order. We need to find all intervals where all employees are free, ensuring these intervals have positive length.
+
+**Jordan**: Interesting problem, Alex. So, if I understand correctly, we are working with intervals that represent each employee's busy times, and we need to invert that to find when they are all free?
+
+**Alex**: Exactly, Jordan. The tricky part is ensuring we accurately handle the intervals, especially since they're not just simple number ranges but objects with start and end properties.
+
+**Sam**: Could we start by discussing how we're going to represent these intervals in our solution? Since they are not lists or arrays but objects, how should we approach this?
+
+**Alex**: Good point, Sam. Let's consider an interval `[x, y]` as an object where `x` is the start and `y` is the end. For example, if we have `schedule[0][0].start = 1` and `schedule[0][0].end = 2`, that's our way of defining an interval.
+
+**Charlie**: Ok, that makes sense. And according to the problem, these intervals do not overlap and are sorted. This should simplify finding gaps between intervals, right?
+
+**Jordan**: Right, Charlie. Now the question is, how do we compare intervals across different employees to find these common free times? 
+
+**Alex**: Well, one approach could be to merge all intervals from all employees into a single list and then look for gaps in that merged list. But, we must handle it in a way that ensures we only consider times when all employees are free, not just one or two.
+
+**Sam**: So, are we essentially looking to invert the busy times to find free times for everyone?
+
+**Alex**: Exactly, Sam. Also, remember, we need to discard any intervals that aren't finite, so any 'free time' that would technically extend to infinity doesn't count.
+
+**Jordan**: I see. There's also the constraint to consider. With up to 50 employees and each having potentially 50 intervals, our solution needs to be quite efficient.
+
+**Charlie**: Do you think we should perform some sort of interval comparison or merging then? Sort all intervals by their start time, perhaps?
+
+**Alex**: That's a solid approach, Charlie. By sorting all intervals by start time, we could then go through them to merge overlapping intervals and find the gaps. But there's a subtlety in identifying overlaps across all employees' schedules collectively, not just within each employee's schedule.
+
+**Sam**: Once we have our merged list of busy times, finding the free times should theoretically be straightforward, right? Just looking at the gaps between the busy intervals?
+
+**Alex**: Precisely, Sam. And from there, we'd be able to find those common free times across all schedules by analyzing the start and end of these gaps. 
+
+**Jordan**: It sounds like we have a decent strategy forming. But we'll need to dive into some coding to truly flesh this out and handle edge cases properly.
+
+**Charlie**: Agreed. Let's start with pseudocode or test cases to ensure we fully grasp the approach and can identify any potential pitfalls before diving into the actual implementation.
+
+**Alex**: Good thinking, everyone. This approach of breaking down the problem—merging schedules, sorting, and finding gaps—seems like our best bet. Let's each take a part of this problem, research some more, and reconvene with some concrete steps or code snippets.
+
+**Sam**: Sounds like a plan. Looking forward to seeing this solution come together.
+
+**Alex**: Great, thanks everyone for your insights. Let's tackle this problem and regroup soon with updates.

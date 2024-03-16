@@ -1,0 +1,33 @@
+**Alex**: Hey everyone, glad we could meet up. I came across this interesting problem about finding numbers with repeated digits up to a given number `N`. Thought it might be a good challenge for us.
+
+**Jordan**: Sounds fun, Alex. So, we're looking for how many numbers there are that have at least one repeated digit within a certain range, right?
+
+**Morgan**: Exactly, Jordan. For instance, if `N` is 20, we're considering numbers from 1 to 20 and figuring out which ones have repetition. Seems like the challenge mentioned 11 as the only number that fits the bill in this range.
+
+**Jamie**: And if we consider up to 100, we're adding 22, 33, and so on, up to 100. Makes sense because each of these has repeating digits. That makes it 10 in total, I suppose.
+
+**Alex**: Right, Jamie. It seems like a straightforward count when you think about small numbers. But remember, this problem scales up to `N` equals 10 to the 9th power. We'll have to think carefully about efficiency here.
+
+**Morgan**: I'm wondering if there's a pattern or a mathematical approach to calculate this without having to iterate through each number. Iteration seems too slow for larger values of `N`.
+
+**Jordan**: One approach could be to think about the complement of our target set—considering how many numbers up to `N` *don't* have repeated digits. That might be easier to calculate directly or through some combinatorics.
+
+**Jamie**: Oh, that's clever. So instead of directly finding numbers with repetitions, we first figure out numbers without repeated digits and subtract from the total. Sounds like a problem that involves permutations.
+
+**Alex**: Yes, permutation is key here. For a given number of digits, we can calculate how many ways to pick digits without repetition. This involves some factorial math, considering the decreasing choices as we pick each digit.
+
+**Morgan**: We also need to remember leading zeros aren't allowed, so our first digit choice is somewhat limited compared to the others. That's an important consideration when we do the math for permutations.
+
+**Jordan**: Right, and for a given `N`, we might also need to handle partial ranges. Say, for `N` being a 3-digit number, we might have to consider not just full sets of 3-digit possibilities but also how the specific digits of `N` restrict the final part of our count.
+
+**Jamie**: Makes sense, it sounds like a mix of counting complete sets for certain digit lengths and then handling edge cases for the final set that doesn't fill up all digit slots.
+
+**Alex**: Exactly. Once we've nailed down calculating numbers without repeated digits, we subtract from the total possibilities up to `N` to find our answer. It'll require careful handling of edge cases but seems like a solid approach.
+
+**Morgan**: This equation feels doable now. We'll need to write it down, run through a few examples to ensure we've covered all bases, especially the edge cases as mentioned.
+
+**Jordan**: And let's not forget testing with small and then gradually larger values of `N`. It'll help us ensure our logic holds and doesn't falter on performance.
+
+**Jamie**: Agreed. Testing will be critical here. Alright then, seems like we have a plan of attack. Let's each take a part of this, work on it, and regroup later to combine our findings and finalize the solution.
+
+**Alex**: Sounds like a plan. Great brainstorming, everyone. Let's solve this.

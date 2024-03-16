@@ -1,0 +1,31 @@
+**Mia**: Hey Jordan, thanks for joining me in this meeting. I've been trying to wrap my head around this coding challenge about arrays and could really use your insight.
+
+**Jordan**: Of course, Mia. Happy to help. What seems to be the problem?
+
+**Mia**: So, there's this task I came across which requires finding the number of non-empty continuous subarrays, where the leftmost element is not larger than the other elements in the subarray.
+
+**Jordan**: That sounds interesting. Are you considering a brute force approach or have you thought about optimizing it?
+
+**Mia**: Initially, I thought about the brute force method, just to understand the problem better—you know, iterating through each possible subarray and checking the condition. But I quickly realized that would be too inefficient, especially with larger arrays.
+
+**Jordan**: Right, that approach could really blow up in terms of time complexity. For problems like these, dynamic programming or stack-based solutions often offer a more efficient path. Have you looked into any of those?
+
+**Mia**: I was reading up on it. I think a stack might be really useful here to keep track of indexes or elements that maintain the required condition, but I'm not exactly clear on how to implement that. How would that work?
+
+**Jordan**: Let's break it down. The stack can help by storing elements or indexes in a manner where you could easily determine if the current element fulfills the condition with respect to those before it. Essentially, you'd want to look at elements in a way where the leftmost condition is always kept in check.
+
+**Mia**: I see, so as I iterate through the array, I'd use the stack to help me figure out if the current subarray, based on the conditions we're given, is valid. This approach would definitely skip unnecessary checks, unlike the brute force way.
+
+**Jordan**: Exactly! And there's a neat trick with these types of problems. Instead of directly counting the subarrays, you can calculate how many valid subarrays an element belongs to. This way, you systematically build up your solution as you traverse the array.
+
+**Mia**: Oh, that's clever. By focusing on each element's contribution to the overall count, right? That could simplify things.
+
+**Jordan**: Precisely. Remember, the goal is to efficiently count subarrays without enumerating each one. Think about how the property of being the smallest or equal element from the left affects the count, and use the stack to efficiently manage this information.
+
+**Mia**: This is making a lot more sense now. I'll need to spend some time coding this out and likely debugging, but I'm feeling much more confident about tackling it. Thanks for breaking it down, Jordan!
+
+**Jordan**: Anytime, Mia. It's all about breaking the problem into manageable pieces. And don't worry about getting it perfect on the first try. Iteration is key. Let me know if you have any more questions, alright?
+
+**Mia**: Will do, thanks again, Jordan. This was incredibly helpful.
+
+**Jordan**: You're welcome. Happy coding!

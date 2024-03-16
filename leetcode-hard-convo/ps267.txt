@@ -1,0 +1,27 @@
+**Alex**: Hey everyone, thanks for jumping on this call. We've got a challenging problem to go over today. It involves strings and palindromes. So, the basic idea is we've got a string of lowercase letters and an integer `k`. Our goal is to change as few characters as possible in the string so that we can split it into `k` palindromic substrings.
+
+**Jordan**: Interesting! So, we're essentially trying to find a way to efficiently convert portions of our string into palindromes, ensuring that these palindromes partition our string exactly `k` times. Sounds like a dynamic programming problem to me.
+
+**Casey**: Definitely feels like it leans towards dynamic programming given the optimization aspect. But, let's also consider the need to account for each substring being a palindrome. That sounds like there's a recursive approach to assessing each potential substring.
+
+**Alex**: Exactly, Casey. To add to that, remember the basic property of a palindrome. A string is a palindrome if it reads the same backward as forward. This means for each substring we consider, we should assess how far it is from being a palindrome.
+
+**Jordan**: So, are we talking about iterating over each possible substring, checking its "palindromicity", and then somehow keeping track of the minimum changes needed across all substrings?
+
+**Casey**: Yes, Jordan. Though, keep in mind the brute force approach might be too slow, especially considering the maximum length of the string is 100. We'd need a more efficient way to keep track of the minimum changes, perhaps by memorizing the results for substrings we've already checked.
+
+**Jordan**: Makes sense, that way we're not repeatedly calculating the number of changes needed for the same substrings. But what about the division into `k` parts? How do we ensure our approach accounts for exactly `k` palindromic substrings?
+
+**Alex**: Good point, Jordan. This is where the problem becomes a bit more nuanced. We need to not only consider the current substring but also how dividing the string affects the remaining portions. For each position in the string, we should consider all possible splits and remember that we're aiming for exactly `k` splits.
+
+**Casey**: Ah, that implies we would also need a way to manage our `k` divisions. Maybe by using another dimension in our dynamic programming approach? One that keeps track of how many splits we've made and adjusts our minimum changes calculation accordingly.
+
+**Jordan**: Right, so our solution would likely involve a function that not only looks at the substring from position `i` to `j` but also considers how many splits, let's call it `p`, we've made up to that point. And, of course, this function would need to minimize the number of changes for `p` to equal `k`.
+
+**Alex**: Exactly, you've got it. Remember, folks, the real challenge here is in the details -- efficiently checking palindromicity, deciding when and where to split, and optimizing the number of character changes. 
+
+**Casey**: Definitely. And we need to be mindful of edge cases, such as when `k` is equal to the length of the string, which means each character must be a standalone palindrome, which, technically, they already are.
+
+**Jordan**: This has been a great brainstorming session, everyone. I think we've outlined a solid approach without diving too deep into specifics. Now it's time to start prototyping and testing our solution.
+
+**Alex**: Agreed. Thanks for your insights, everyone. Let's reconvene with some pseudocode and initial implementations next time.

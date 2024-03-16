@@ -1,0 +1,37 @@
+**Alex**: Hey Jamie, I came across a really interesting programming problem related to binary search trees (BSTs). 
+
+**Jamie**: Oh, what's it about?
+
+**Alex**: It's about a BST where two nodes have been swapped by mistake, and we need to recover the tree without changing its structure. 
+
+**Jamie**: Sounds intriguing! So, we're given a BST with this mistake and need to fix it, right?
+
+**Alex**: Exactly! And there's this fascinating challenge to solve it using constant space. 
+
+**Jamie**: Constant space, as in O(1)?
+
+**Alex**: Yes! Although the straight-forward solution would use O(n) space, optimizing it to constant space is where the fun starts.
+
+**Jamie**: Got it. I guess for the O(n) solution, we could perform an in-order traversal and collect the values, since the inorder sequence of a BST should be sorted. But what about O(1) space?
+
+**Alex**: That's correct for the O(n) approach. For constant space, however, we'd need to think of a way to do the in-order traversal without storing the entire sequence. 
+
+**Jamie**: Ah, so you're hinting at Morris Traversal for the in-order, right? That doesn't require additional space for the recursion stack or an auxiliary data structure.
+
+**Alex**: Right. Morris Traversal gives us an innovative way to traverse the tree without extra space. The challenge then would be to identify the two swapped nodes during this process.
+
+**Jamie**: Makes sense. While performing the traversal, we'd look for pairs of nodes where the first node is greater than the second, indicating a violation of the BST properties?
+
+**Alex**: Exactly. There could mainly be two scenarios we need to consider. 
+
+**Jamie**: I'm assuming one scenario involves the swapped nodes being adjacent in the in-order sequence and the other where they're not?
+
+**Alex**: Spot on, Jamie! And once we've identified the nodes that were swapped, we can proceed to swap their values back.
+
+**Jamie**: Sounds like a plan. But it does seem like the identification part would be tricky, especially distinguishing between those two scenarios you mentioned.
+
+**Alex**: Yes, the distinction is crucial. But with careful observation of the inorder properties and the misplaced nodes, it can be done. 
+
+**Jamie**: Alright, I think I have a good starting point now. I'll try sketching out the algorithm based on this discussion. Thanks, Alex!
+
+**Alex**: Anytime, Jamie! Always happy to discuss and explore these interesting problems. Let me know how it goes!

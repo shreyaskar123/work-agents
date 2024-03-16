@@ -1,0 +1,41 @@
+**Alex**: Hey folks, glad we could meet up. I’ve got this interesting problem we could discuss. It involves dividing an array of zeros and ones into three parts with equal binary values.
+
+**Jordan**: Sounds intriguing! Are we talking about splitting the array strictly into contiguous segments?
+
+**Alex**: Exactly, Jordan. Each segment, when taken as a whole, should represent the same binary value.
+
+**Charlie**: So, basically, we need to find a way to check each segment's binary equivalence. There's a catch, though, these segments must be non-empty.
+
+**Jordan**: I see. Let’s start with an example, perhaps the array [1,0,1,0,1]? The challenge would be to find indices that allow for equal binary values across the three segments.
+
+**Alex**: Precisely. For that example, we're looking at a solution like [0,3], where the first segment is from the start to index 0, the second runs till index 3, and the third comprises the rest.
+
+**Charlie**: The binary value check is interesting. We must ensure all segments, when considered in binary, sum up to the same value.
+
+**Jordan**: Would leading zeros impact our calculation?
+
+**Alex**: Great question, Jordan! Leading zeros don’t impact the binary value. So [0,1,1] and [1,1] are treated the same.
+
+**Charlie**: It's also critical we note the constraint - the length of the array can be quite significant, up to 30,000.
+
+**Jordan**: That emphasizes efficiency. A brute-force approach might not be the best path forward.
+
+**Alex**: Yes, we need to think about how to optimize our approach. Maybe focusing on counting the number of ones could give us some insights?
+
+**Charlie**: Potentially looking for patterns or sequences that could help us divide the array logically without checking each possible division?
+
+**Jordan**: And I suppose we must also consider what to return if no such division is possible. Our function should be clear about failure cases.
+
+**Alex**: Correct. The challenge specifies returning [-1,-1] if no solution exists.
+
+**Charlie**: There's depth to this problem. Thinking about it, we need to balance between finding equal binary values and maintaining non-empty parts. This could involve some element of precalculation or even dynamic programming.
+
+**Jordan**: Let's not forget about edge cases too. Certain arrays might have subtle nuances that could trip up a straightforward approach.
+
+**Alex**: Absolutely. Why don't we map out a strategy to tackle this, considering performance and edge cases, and reconvene to test our logic against various scenarios?
+
+**Charlie**: Sounds like a plan. I'm curious to see the different approaches we come up with.
+
+**Jordan**: Agreed. It's a good opportunity to compare notes on efficiency and accuracy.
+
+**Alex**: All right, team. Let’s divide and conquer this challenge, then. Looking forward to our next meeting to share and learn from our findings.

@@ -1,0 +1,29 @@
+**Alice:** So, we're tasked with figuring out the best way to calculate the maximum score given a list of words, a set of letters we can use, and the score for each letter. Right?
+
+**Bob:** Exactly. The first thing that comes to mind is looking at the frequency of each letter in the provided letters and then seeing how we can match those to the words we have.
+
+**Charlie:** But don't forget, each letter from our pool can only be used once. So, if a word requires two 'a's, but we only have one, that word is off the table.
+
+**Alice:** True, it seems like a typical optimization problem. We could potentially solve this using recursive backtracking, trying each word in combination and keeping track of the highest score.
+
+**Bob:** I was thinking about the score calculation part. We could pre-calculate the score for each word based on the `score` array and then use those values in our algorithm to speed things up.
+
+**Charlie:** That's a good point. Now, regarding the implementation, we probably need a way to keep track of which letters we've used so far. Maybe decrement a count in a frequency map of the letters each time we use one?
+
+**Alice:** I like that approach. Also, we might hit the same combinations multiple times during recursion, right? Maybe we can use some form of memoization to avoid recalculating scores for combinations we've already seen.
+
+**Bob:** Yeah, there's definitely room for optimization there. Speaking of which, do we want to generate all possible word combinations or is there a clever way to skip over obviously non-optimal choices?
+
+**Charlie:** Well, one simple heuristic could be to skip words that have letters not present in our pool or if adding the word would result in a lower score than our current maximum.
+
+**Alice:** Another interesting point could be the ordering of the words. If we sort the words by their score density, perhaps we could try high-value words first to potentially reach a high score quicker?
+
+**Bob:** Good thought. We also need to think about the base case for our recursion. I suppose once we use up all our letters or if there are no more words that can be formed, we'd return the current score.
+
+**Charlie:** Correct. And throughout this process, we're basically performing a depth-first search through all possible word combinations, updating our maximum score as we go along.
+
+**Alice:** This has been a fruitful discussion. I think we have a pretty solid understanding of the approach now. It's all about fine-tuning and optimization from here.
+
+**Bob:** Definitely. Let's start prototyping and see how our solution holds up against different test cases.
+
+**Charlie:** Agreed. I'm curious to see how our heuristic decisions will impact performance, especially with larger datasets.

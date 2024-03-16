@@ -1,0 +1,31 @@
+Jamie: Alright, let's dive into the problem of designing a basic Excel function with a focus on the sum formula. I think the first thing we need to tackle is how to initialize our Excel class with the given height and width.
+
+Alex: Yeah, so based on the prompt, if the input is Excel(3,"C"), we need to create a 3 by 3 grid. What’s interesting here is converting the character width to a numeric value for the array dimensions.
+
+Taylor: Exactly! We could use character manipulation, considering 'A' as 1 and so on until 'Z'. So, 'C', in this case, would translate to the third column.
+
+Jamie: Correct, that means our grid initialization inside the Excel constructor would involve setting up a 2D array with zeros initially, right?
+
+Alex: Precisely. Now, moving on to setting a specific cell value with Set(int row, char column, int val), we'll need a way to access the specific cell in our grid.
+
+Taylor: That involves similar character manipulation for the column, and then simply updating that cell with the given value. Straightforward enough.
+
+Jamie: And for Get(int row, char column), it's pretty much the reverse of Set. Just fetch the value at the specified cell without modifying anything.
+
+Alex: I think the trickiest part is the Sum function. How do we approach parsing the list of strings representing cells and cell ranges?
+
+Taylor: We should probably split it into two tasks — parsing single cells and parsing ranges. For single cells, it's direct mapping. For ranges, we need to calculate the bounds and then iterate over each cell in that rectangle to accumulate the sum.
+
+Jamie: Right, and crucially, we need to make sure the sum formula is dynamic. Meaning if a cell value changes that's part of a sum, the sum should update accordingly.
+
+Alex: That implies we need some kind of dependency tracking, or a way to re-evaluate the sum when a Set operation happens on a cell included in any sum.
+
+Taylor: One approach could be maintaining a map of which cells are contributing to which sums. So when a Set operation occurs, we check if this cell is part of any sum and then update those sums accordingly.
+
+Jamie: Sounds like a solid plan. And we also need to remember about resetting class variables as mentioned, to avoid stale data across test cases.
+
+Alex: Right. Keeping track of dependencies and data isolation for test cases will be key here. 
+
+Taylor: I believe we have a good understanding now. Let's start implementing and see if we come across any specific challenges. 
+
+Jamie: Agreed. Keep testing with different cases to ensure accuracy, especially edge cases. Let’s get to coding.

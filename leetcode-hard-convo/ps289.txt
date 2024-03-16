@@ -1,0 +1,37 @@
+Meeting participants: Alice, Bob, and Charlie
+
+---
+
+**Alice:** Good morning everyone. Today, we're going to brainstorm an approach to finding the maximum sum of all keys of any sub-tree within a given binary tree, but the catch here is that the subtree itself must be a Binary Search Tree.
+
+**Bob:** Okay, that's interesting. So, if I got this right, we need to first figure out which subtrees are BSTs, right?
+
+**Charlie:** Exactly, Bob. And then among those BSTs, we find the one with the maximum sum of its nodes.
+
+**Alice:** Right. So, how do we start with identifying a BST? 
+
+**Bob:** Well, we know the properties of a BST: the left subtree has nodes with keys less than the node's key, and the right subtree has nodes with keys greater than the node's key. 
+
+**Charlie:** True, but we also need to ensure that this property holds not just between the immediate children and the parent, but throughout the entire subtree.
+
+**Alice:** That's a good point. So, we need a way to traverse the tree and simultaneously check if a subtree is a BST and calculate its sum. Any thoughts?
+
+**Bob:** Traversal-wise, I'd suggest a post-order traversal. This way, we can process the children before the parent and have the information we need from the bottom up.
+
+**Charlie:** Agreed. Now, about checking for the BST property and calculating the sum, we could return a structure from our traversal that includes whether the subtree is a BST, its sum, and the min and max values to help parent nodes determine the BST status.
+
+**Alice:** I like that. Essentially, each node returns whether it's the root of a valid BST, the sum of the subtree if it is a BST, and the min/max to help the parent node decide. 
+
+**Bob:** Exactly, and if at any node we find it doesn't satisfy the BST conditions with its children, we mark it as not a BST. But we would still need the sum of its children to calculate the maximum.
+
+**Charlie:** So, our function wouldn't just need to look for BSTs, it would also have to keep track of the maximum sum we've encountered, even if the current subtree isn't a BST.
+
+**Alice:** Precisely, Bob. And regarding the edge case where all numbers are negative, we need to ensure our base sum starts at 0 because an empty BST is valid and would have a sum of 0.
+
+**Bob:** That's a smart catch. So, our algorithm essentially involves a helper function that we call recursively and this function performs post-order traversal. It checks if a node’s subtrees are BSTs, computes their sums, and updates the maximum sum found.
+
+**Charlie:** This strategy should work. Let's not forget to handle null nodes appropriately, as they affect our min and max calculations.
+
+**Alice:** Absolutely. This approach will allow us to cover all cases, including ensuring we only consider BSTs and update our maximum sum accordingly. Plus, handling negative values correctly by considering an empty BST gives us a foolproof method.
+
+**Bob:** Great team effort, everyone. Now, let's start coding this out and test it with different scenarios to ensure our solution is robust.

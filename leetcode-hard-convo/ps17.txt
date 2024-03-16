@@ -1,0 +1,37 @@
+**Alex**: Good afternoon, everyone. Thanks for joining today's brainstorming session. We're gathered here to tackle an interesting programming challenge that focuses on wildcard pattern matching.
+
+**Jordan**: Oh, that sounds intriguing, Alex. So, what's the specific challenge we're looking at today?
+
+**Alex**: Well, we need to devise a method to check if a given input string matches a pattern. The pattern could include two special characters: a question mark `'?'`, which matches any single character, and an asterisk `'*'`, which can match any sequence of characters, even an empty one.
+
+**Morgan**: That sounds like a classic problem. It's quite similar to regular expression matching but a bit simplified, right?
+
+**Alex**: Exactly, Morgan. It’s a simplified version. For example, if our input string is "aa" and the pattern is "a", the method we develop should return false because the single 'a' doesn't match the entire string "aa".
+
+**Jordan**: Alright, got it. How about a pattern like "*" on the same input? I assume it should return true since '*' can represent any sequence of characters.
+
+**Alex**: Right on the money, Jordan. And if we have a pattern like "?a" against the string "cb", it should return false. The '?' would match 'c', but there's no match for 'a' and 'b'.
+
+**Morgan**: Makes sense. I'm assuming we're also looking at cases where the pattern could have multiple '*' characters. For instance, a pattern like "*a*b" against "adceb" should return true, correct? The first '*' can match an empty sequence, and the second '*' matches "dce".
+
+**Alex**: Spot on, Morgan. We also need to handle patterns where '?' and '*' are combined, such as "a*c?b". If we test this pattern against "acdcb", the expected result is false. 
+
+**Jordan**: I see. Before we proceed with brainstorming solutions, are there any constraints or limitations we should be aware of regarding the input size or characters?
+
+**Alex**: Good question, Jordan. Both the input string and pattern will not exceed 2000 characters. Also, they'll only contain lowercase English letters plus the special characters '?' and '*'.
+
+**Morgan**: Understanding the constraints helps. So, we’re essentially building a function that iterates through the string and pattern, assessing matches as we go. I think dynamic programming could be useful here, especially to handle the '*' wildcard efficiently.
+
+**Alex**: Indeed, Morgan. Dynamic programming sounds like a promising approach. It's all about identifying subproblems and avoiding redundant computations by storing past results.
+
+**Jordan**: Also, assuming we proceed with dynamic programming, we need to carefully define our state representation. For example, whether a certain length of the input string matches the same length of the pattern upto that point.
+
+**Morgan**: Right. And let's not forget about the initialization of our DP table, especially handling cases with multiple '*' characters at the beginning of the pattern.
+
+**Alex**: Those are all excellent points. Our goal today is to layout a solid foundation so anyone from our team can take this information, do some additional research if needed, and implement a solution. Feel free to share your thoughts, edge cases, or optimization strategies as they come to you.
+
+**Jordan**: Will do, Alex. It’s a complex problem, but breaking it down like this makes it manageable. I’m excited to see the innovative solutions we’ll come up with.
+
+**Morgan**: Agreed. It's going to be interesting to figure out the nuances, especially with different combinations of '?' and '*'. Let’s get started on brainstorming and sketching some initial ideas. 
+
+**Alex**: Great! Let's kick off this deep dive, and remember, collaboration is key. Looking forward to all your inputs and insights. This is not just about finding a solution; it's about understanding the problem and learning together. Thanks, everyone!

@@ -1,0 +1,29 @@
+**Alex**: Hey, Cam and Sam! I was looking into that grid problem we discussed the other day, about finding the shortest total travel distance for building a house. Have you two made any progress on it?
+
+**Cam**: Oh, yes. That's an interesting one. I started by considering how we could traverse the grid. Since we can only move up, down, left, and right, it sounds like a job for Breadth-First Search (BFS), right?
+
+**Sam**: Exactly, Cam. BFS seemed like a natural fit for exploring each possible empty land (those marked with `0`) from the perspective of each building. The key part is calculating the distance from each building to every piece of empty land and then summing those distances up.
+
+**Alex**: So, you mean we perform BFS for every building to find the shortest path to all empty lands, correct? How do we handle obstacles and buildings during this traversal?
+
+**Cam**: That's where the grid values come into play. While performing BFS, if we encounter a `1`, that's a building; we ignore that path since we can't pass through buildings. And the same goes for obstacles marked with `2`. We only traverse through and expand paths on `0` values, which represent empty land.
+
+**Sam**: And don't forget, during BFS, to keep track of the distances. We need to sum the distances from each empty land cell to all buildings. This requires maintaining a separate array to track the total distance for each `0` cell and another array to keep count of how many buildings each `0` cell can reach.
+
+**Alex**: Oh, maintaining another array sounds crucial. That way, we ensure that the chosen empty land can indeed reach all buildings. If at the end of our traversal, any `0` cell hasn’t reached all buildings, we disregard it, right?
+
+**Cam**: Precisely. After we finish running BFS from all buildings and populating our distance and reach arrays, we just need to find the minimum total distance from an empty land cell that can reach all buildings.
+
+**Sam**: There’s also a neat optimization step where we can terminate our search early if during the process, we realize that a particular empty land cell cannot possibly reach all buildings due to obstacles or layout. Saves some compute time.
+
+**Alex**: I see, that makes sense. So once we've found the cell with the minimum total distance that can reach all buildings, we return the total distance. And if no such cell exists, we return `-1`.
+
+**Cam**: Exactly, those are the potential outcomes. Implementing this efficiently will require careful consideration of our BFS approach and how we manage state during traversal.
+
+**Sam**: Agreed. With the BFS in place and proper state management, I think the most challenging part is implementing the distance and reachable counters correctly. Errors there could easily lead to miscalculating the optimal location or distances.
+
+**Alex**: Awesome. This gives me a solid starting point. I'll draft some pseudo-code based on our discussion and run through a few test cases to ensure we've covered all scenarios. Thanks, Cam and Sam, for the brainstorming!
+
+**Cam**: Anytime, Alex. It's a challenging problem, but breaking it down like this makes it manageable. Let us know how your implementation goes!
+
+**Sam**: Yeah, looking forward to seeing your solution in action, Alex! Remember, test cases are key for catching edge cases.

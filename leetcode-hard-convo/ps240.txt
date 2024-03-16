@@ -1,0 +1,43 @@
+**Alex:** Hey everyone, glad we could meet up. I’ve been trying to solve this programming puzzle I stumbled upon, but it’s a bit tricky. It involves finding the last substring of a given string in lexicographical order.
+
+**Jordan:** Oh, that sounds interesting. How do you typically approach a problem like that?
+
+**Alex:** Well, the first step is usually to understand how lexicographical order works. It’s pretty much like dictionary order, right?
+
+**Sam:** Exactly, you compare strings character by character, just like you would in a dictionary. So, what’s the example given in the problem?
+
+**Alex:** For instance, if we have a string “abab”, the substrings are “a”, “ab”, “aba”, “abab”, “b”, “ba”, “bab”, and the lexicographically last substring is “bab”.
+
+**Jordan:** Makes sense. So, essentially, we need to generate all substrings, sort them lexicographically, and pick the last one?
+
+**Alex:** That could work but imagine doing that for a string with a length of up to 400,000 characters. It would be inefficient.
+
+**Sam:** True, there must be a more optimized way to determine the lexicographically last substring without generating all possible substrings.
+
+**Jordan:** What if we start from the end of the string and somehow keep track of the best (lexicographically last) substring as we move towards the beginning?
+
+**Alex:** That’s an interesting approach. It cuts down the need to compare each substring with every other substring. But how do we ensure we’re keeping the best one?
+
+**Sam:** Maybe by comparing characters and their positions? Since lexicographical order relies heavily on the position of characters within the alphabet, the comparison could help isolate the best candidate as we iterate.
+
+**Jordan:** And we would need to consider how to handle substrings that start with the same character, right?
+
+**Alex:** Definitely. It might involve a second level of comparison where the lengths or the subsequent characters of the substrings play a role.
+
+**Sam:** This is turning into a real deep dive. So, in terms of implementation, we’re focusing on iterating backwards, comparing characters, and keeping track of the current best option.
+
+**Jordan:** It sounds like a plan. What tools or methods should we consider using to keep track of our comparisons and choices efficiently?
+
+**Alex:** A good data structure for holding the best substring found so far is crucial. Maybe something that allows us to easily compare and update the best candidate as we iterate.
+
+**Jordan:** Got it. And since we’re dealing with strings, we should also remember how to manipulate and compare them effectively in our chosen programming language.
+
+**Sam:** Alright, I feel like we have a solid outline for approaching this problem. It'll require careful thought, especially around optimizing the comparison and storage steps.
+
+**Alex:** Yeah, I agree. Let’s all take a crack at implementing our version of the solution based on this discussion and regroup later to compare notes.
+
+**Jordan:** Sounds like a plan. Thanks for bringing this problem to the table, Alex. It’s a good challenge.
+
+**Sam:** Absolutely, looking forward to seeing what we each come up with. Good luck, folks!
+
+**Alex:** Thanks, everyone. Catch you all after we’ve had some time to work on it.

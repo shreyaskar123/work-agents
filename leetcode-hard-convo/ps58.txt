@@ -1,0 +1,31 @@
+Alex: Hey, Taylor, got a minute? I was reviewing the requirements for implementing a MedianFinder class and wanted to discuss an efficient way to tackle this.
+
+Taylor: Sure, Alex. Let's dive into it. So, we have to maintain a dynamic list of integers and be able to find the median at any point, right?
+
+Alex: Exactly. And considering the constraints, we need a solution that can handle a large number of calls to both `addNum` and `findMedian` methods efficiently.
+
+Taylor: Right. A brute force approach where we simply sort the list every time before finding the median could be too slow, especially for large datasets.
+
+Alex: Agreed. For the `addNum` method, we need something faster. What if we use two heaps to maintain the elements? One min-heap to store the larger half and one max-heap for the smaller half of the elements.
+
+Taylor: I like where this is going. By doing that, we can ensure the heaps are balanced in size, or one is allowed to have just one more element than the other, correct?
+
+Alex: Precisely. That way, if we have an even number of elements, the median would be the average of the max element from the smaller half and the min element from the larger half.
+
+Taylor: And for an odd number of elements, the median is just the top of the larger heap. That's brilliant because both heap operations, insert and extract, can be done in logarithmic time.
+
+Alex: Exactly. Now, concerning the `findMedian` method, if the total size of the data structure is odd, we pick the top element from the heap that has one extra element. Otherwise, we calculate the average of the top elements from both heaps.
+
+Taylor: This sounds efficient. Also, for the follow-up questions about optimizing for ranges `[0, 100]` and where `99%` are within `[0, 100]`, perhaps using an array to count occurrences could work. For the integer range, we can use a fixed-size array and keep track of the total count to find the median in constant time.
+
+Alex: That makes sense for the specific range. The challenge might be adjusting our approach to still efficiently handle the outliers when not all elements fall within `[0, 100]`.
+
+Taylor: True. We could combine both strategies: use the array for the majority of cases within RANGE and revert to the heap approach for handling outliers.
+
+Alex: Great thinking. This hybrid approach could offer the best of both worlds, maintaining efficiency while accommodating exceptions.
+
+Taylor: Alright, let's start prototyping this. We'll need to carefully consider the transition between methods depending on the input.
+
+Alex: Agreed. Let’s get coding and see how our solution performs. Thanks for the brainstorm, Taylor!
+
+Taylor: Anytime, Alex. Let’s make this work!

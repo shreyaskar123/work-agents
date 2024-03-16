@@ -1,0 +1,41 @@
+Alex: Hey, Jamie! Did you get a chance to look at that sequence problem I sent you?
+
+Jamie: Yes, I did. The one where we remove integers containing the digit 9, right?
+
+Alex: Exactly. I've been trying to figure out a way to return the n-th integer after removing those integers. Can't wrap my head around it, though. Any ideas?
+
+Jamie: Well, it's an interesting problem. The key here is to think about how the sequence changes when you remove numbers containing 9. It's not a continuous sequence anymore but follows a pattern.
+
+Taylor: Sorry to chip in, but it sounds like a base-n problem to me. Like, since we're skipping the digit 9, wouldn't treating the sequence without 9s almost be like counting in a different base?
+
+Alex: Huh, I hadn't considered that perspective. That's like, instead of decimal, we're basically working in a... what, base 9?
+
+Jamie: Right, Taylor. And Alex, not exactly base 9, but think of it as a modification. In base 10, we use the digits 0-9. If we remove the digit 9, we technically still use base 10 but have to adjust how we count past 8.
+
+Taylor: Exactly. So, for this problem, maybe it’s more about converting the given `n` to this modified counting system rather than directly trying to skip numbers containing 9 in the traditional sequence.
+
+Alex: I see what you’re getting at. But how would we go about converting a given `n` into this modified sequence? I mean, where do we start?
+
+Jamie: Well, it’s like trying to find the representation of `n` in this "new base". You would start by understanding the weight of each position in our number, much like you would in any numeral system.
+
+Taylor: And don’t forget, since we’re aiming to get the nth number in this sequence, we need to ensure our method effectively maps `n` to its correct position in our adjusted sequence. Therefore, the approach should probably involve some loop or recursion that breaks down `n` based on this "new base" logic.
+
+Alex: So, I guess we start at 1 and then count up while skipping any number that would traditionally contain a 9. We keep doing this until we reach our nth position, but theoretically, we're doing this by converting numbers, not manually skipping over them.
+
+Jamie: Precisely. And along those lines, thinking about how every digit position essentially represents a power in our modified base could be crucial. It’s like decomposing the number but under our specific rules.
+
+Taylor: Definitely. Also, consider edge cases based on the position of n. Like, what happens when `n` is very large? The efficiency of your approach will significantly matter given the constraint `1 <= n <= 8 x 10^8`.
+
+Alex: That's a great point. So, an efficient conversion mechanism, mindful of large `n` values, without iterating through each number up to `n`... Sounds challenging but definitely a good avenue to explore.
+
+Jamie: For sure. Dive deep into how traditional base conversion works and then tweak that understanding to fit this problem's requirements. I’d recommend starting with a simple example and manually converting it to see the pattern.
+
+Taylor: Sounds like we have a solid starting point, then. After we figure out the conversion method, we can maybe write some pseudo-code to test our logic before finalizing the algorithm.
+
+Alex: Great discussion, folks. Let’s draft something up based on this and see where we get. Appreciate your insights, Jamie and Taylor!
+
+Jamie: Happy to help! I’m looking forward to seeing what we come up with.
+
+Taylor: Same here. Let's tackle this problem and maybe reconvene later with what we’ve each brainstormed? 
+
+Alex: Sounds like a plan. Catch you both later!

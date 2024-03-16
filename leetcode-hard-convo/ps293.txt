@@ -1,0 +1,35 @@
+**Jamie:** So, regarding this pizza dilemma, how do we kick this off?
+
+**Alex:** Right, it's a bit of a puzzle, isn't it? We've got this circular array representing pizza slices. First things first, since the array is circular, it means that the first and last elements are adjacent. We should keep that in mind.
+
+**Jordan:** Exactly, and given the pattern of picking slices - you pick one, Alice picks the next slice in an anti-clockwise direction, and Bob picks in the clockwise direction - it seems like a strategy problem. We need to maximize the sum of the slices we pick without directly affecting what Alice and Bob pick, apart from our initial choice.
+
+**Jamie:** So, does that mean we are looking at some form of dynamic programming here since we need to make optimal choices given a set of constraints?
+
+**Alex:** That's a good point, Jamie. Dynamic programming sounds like a viable approach, especially because we need to make decisions at each step to maximize the total sum of our slices.
+
+**Jordan:** Right, and since we can't directly affect Alice and Bob's choices, we need to frame our problem in such a way that we consider the impact of our choice not just immediately, but how it sets us up for future picks.
+
+**Jamie:** Okay, let's think about this in terms of states and transitions. Every time we pick a slice, we change the state of the board. Our goal is to transition through states such that we maximize our total.
+
+**Alex:** Exactly, but remember that removing slices also modifies the circular array. We can't just think linearly because of the circular nature of the pizza.
+
+**Jordan:** Good point. So, we're probably looking at breaking the problem down somehow. Given any slice we pick, we effectively partition the pizza into two, right?
+
+**Jamie:** True, and we'd have to solve the problem independently for each partition, considering we can't pick adjacent slices to the ones Alice and Bob pick. 
+
+**Alex:** That brings an interesting point about overlapping subproblems and optimization. Since the array is circular and we're dealing with partitions, seems like we might be able to cache some results?
+
+**Jordan:** Absolutely, caching results or memoization would significantly improve efficiency. But there's also the challenge of representing the state uniquely, especially because of the circular array.
+
+**Jamie:** Perhaps we could normalize the array or represent states in a way that abstracts out the circular nature?
+
+**Alex:** There's merit to that. Normalizing the array could simplify our calculations. Let's also not forget the constraints. The array's length is always 3n, which might simplify how we partition and solve the subproblems.
+
+**Jordan:** True. It hints at a pattern or symmetry in the problem. Alright, it seems we have a fair idea of the approach: dynamic programming, dealing with states and transitions, and possibly memoization to optimize.
+
+**Jamie:** Yeah, let's sketch out some pseudocode and identify the base cases for our recursive solution. We also need to figure out the transition functions and how to handle the circular nature effectively.
+
+**Alex:** Right, once we've got that down, we can dive into coding it out and debugging. Great brainstorming, everyone!
+
+**Jordan:** Agreed, let's solve this pizza problem and maybe grab some real pizza afterward as a reward!

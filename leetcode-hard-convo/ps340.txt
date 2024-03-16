@@ -1,0 +1,31 @@
+Alex: Alright, let's start with the basics. We've got a task here that involves constructing a binary expression tree from an arithmetic expression which follows the standard arithmetic order of operations, correct?
+
+Jordan: Exactly. The expression is given in infix notation, which means operators are placed in-between their operands, like how we normally write expressions.
+
+Morgan: Right, and the main challenge is to convert that into a binary expression tree. Since in the tree, every internal node needs to represent an operator, and the leaf nodes will represent the operands.
+
+Alex: So, the first step would be breaking down the expression by following the order of operations. Parentheses come first, followed by multiplication and division, and then addition and subtraction, if I'm not mistaken.
+
+Jordan: That's correct. However, constructing the tree needs us to invert that process a bit because when we build the tree, we have to identify which operation must come at the root of the tree. This requires a kind of bottom-up approach.
+
+Morgan: Makes sense. Essentially, we're trying to find the last operation that would be performed in the normal order of operations and make that the root of our tree. So for something like "3*4-2*5", the subtraction would be the last operation, and thus it becomes the root of our tree.
+
+Alex: Right. From there, we split the expression into two sub-expressions, "3*4" and "2*5", and recursively apply this process, breaking them down further until we only have operands left, which become our leaf nodes.
+
+Jordan: And keeping track of the order of operations is critical here. We can't just pick any operation; it has to follow the correct mathematical order.
+
+Morgan: Yeah, and don't forget about how parentheses could alter the natural order of operations. We'll need a way to evaluate expressions inside parentheses and treat them as single entities in our process.
+
+Alex: Definitely. That could involve scanning the expression from the start, counting opening and closing parentheses to identify the sub-expressions correctly. Each time we find an operation that should be executed according to precedence rules, without any pending higher precedence operations or unmatched parentheses before it, we've found our next node.
+
+Jordan: For example, with the expression "2-3/(5*2)+1", we first handle the division since it's the highest precedence operation not inside any parentheses, and so on.
+
+Morgan: And suppose we carefully manage these operations and their order, along with correctly handling parentheses. In that case, we should be able to build the binary expression tree piece by piece, starting from the root all the way to the leaves.
+
+Alex: Right. The key takeaway here seems to be understanding the order of operations deeply and being meticulous about how we parse the expression and build the tree step by step.
+
+Jordan: Absolutely. And we need to always maintain the original order of operands as they appear in the given infix expression since that's a crucial requirement for the resulting binary expression tree.
+
+Morgan: Once we have this process nailed down, we can essentially handle any valid arithmetic expression given to us and construct its respective binary expression tree correctly.
+
+Alex: Sounds like a solid plan. Let's start outlining some pseudocode and see how we can implement this logic efficiently.

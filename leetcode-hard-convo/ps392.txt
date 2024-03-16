@@ -1,0 +1,31 @@
+**Alice**: Hey everyone, thanks for joining today. We're here to discuss the implementation of the `MKAverage` class, a data structure to help calculate an average for a stream of integers with some constraints. 
+
+**Bob**: Right, it seems like a really interesting problem. So, we have two integers `m` and `k`, and we need to consider the last `m` elements of the stream, remove `k` smallest and `k` largest elements, and then find the average of the remaining elements. Correct?
+
+**Alice**: Precisely, Bob. And if the stream has fewer than `m` elements, our MKAverage should be `-1`.
+
+**Cara**: Sounds like we need an efficient way to keep track of the last `m` elements. A circular buffer or a deque could be useful for this, perhaps?
+
+**Alice**: A valid point, Cara. We should consider how to efficiently add elements and remove the oldest ones once we have more than `m` elements in our stream.
+
+**Bob**: What about handling the removal of the smallest and largest `k` elements? We'll need fast access to these elements.
+
+**Cara**: A balanced binary search tree, or perhaps multiple priority queues, could help. We could use one priority queue to keep track of the smallest `k` elements and another for the largest `k` elements.
+
+**Alice**: I like where this is going. And to calculate the remaining average efficiently, it might help if we keep a running sum of the elements in the middle, excluding the smallest and largest `k` elements, adjusting it as elements are added or removed.
+
+**Bob**: Yeah, but remember, all operations should be efficient. Insertions, deletions, and average calculation, especially since it could be called frequently. 
+
+**Cara**: Definitely. For additions, we need to consider where the new element fits: whether it's in the smallest `k`, largest `k`, or the middle section. And for recalculating the running sum and count of the middle section accordingly.
+
+**Alice**: This is shaping up nicely. We will also need to round down the final average to the nearest integer as per the requirements.
+
+**Bob**: It sounds complex but interesting. We have to be careful about the edge cases, like when exactly `m` elements are in the stream or when we transition from a state where we had less than `m` elements to exactly `m` elements.
+
+**Cara**: Absolutely, thorough testing will be crucial here. We must ensure our implementation handles various sequences of operations correctly.
+
+**Alice**: Alright, team, I think we have a solid plan of action. Let's go ahead and prototype this, focusing on efficient data structures and keeping an eye on our operation complexities. We’ll regroup later to review our progress and tackle any challenges that come up.
+
+**Bob**: Sounds like a plan. Thanks for the great discussion, everyone. Let’s get to coding!
+
+**Cara**: Looking forward to seeing this come together. Catch you all at the next check-in!

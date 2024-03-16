@@ -1,0 +1,29 @@
+**Alex**: Hey everyone, glad we could meet up. We’ve got this interesting challenge on our hands regarding building the most efficient team based on the skills required for our project. We need to come up with a method that allows us to select team members so that all required skills are covered with the least number of people.
+
+**Jordan**: Right, so we've got a list of skills that are required, `req_skills`, and a list of potential team members, `people`, where each person has a list of skills they possess.
+
+**Jamie**: To make sure I understand correctly, if our project needs skills in Java, NodeJS, and ReactJS, our goal is to find the smallest subset of people who collectively possess all these skills, correct?
+
+**Alex**: Exactly, Jamie. And each person is described by their respective indices, making it easier to identify them.
+
+**Sam**: So, for example, if we have three people where the first knows Java, the second knows NodeJS, and the third knows both NodeJS and ReactJS, we could pick the first and third person to cover all bases, right?
+
+**Jordan**: Correct, Sam. That would be depicted as [0,2] since we’re referring to the people by their indices. It’s like creating the most effective team without any redundancy.
+
+**Jamie**: Sounds like we need a systematic way to check every possible combination of team members against the list of required skills. But... there has to be a more efficient way than brute-forcing it, given the potential number of combinations.
+
+**Alex**: You’re onto something, Jamie. Given the constraints, brute force could be incredibly inefficient. We should look into optimization techniques, maybe some kind of dynamic programming or backtracking to reduce the search space.
+
+**Sam**: I think mapping each skill to the people who can perform it might help us. This way, we could somehow track which skills are covered more efficiently as we consider different combinations of people.
+
+**Jordan**: Agree. And we should also keep track of the smallest team we’ve found so far as we progress. That could help us avoid unnecessary calculations, especially if we’ve already found a team that covers all skills with fewer members than we’re currently considering.
+
+**Jamie**: What about edge cases? Like, what if someone possesses all the required skills? Or if multiple people have the same skill sets?
+
+**Alex**: Good point. Those cases need to be handled gracefully. If someone covers all required skills, they form a sufficient team on their own. Similarly, if people have identical skill sets, we’d only need to consider one of them for the potential team composition.
+
+**Sam**: Seems like we have a decent strategy forming here. It'll require careful implementation, especially regarding how we recursively or iteratively consider different team members while ensuring we’re not exploring unnecessary combinations.
+
+**Jordan**: Absolutely. Let’s also document our thought process and decisions as we code. This will not only help us keep track of our logic but also assist anyone who reviews our solution.
+
+**Alex**: Great discussion, team. Let’s start working on this and regroup later with our respective parts. Remember, our goal is to keep the solution efficient and easy to understand. Looking forward to seeing what we come up with!
