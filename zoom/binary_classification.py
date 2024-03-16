@@ -5,7 +5,7 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import make_pipeline
 
 # Load the dataset
-df = pd.read_csv('training_set.csv')
+df = pd.read_csv('zoom/training_set.csv')
 descriptions = df['description'].values
 labels = df['label'].values
 
